@@ -41,7 +41,7 @@ export default function Hero() {
               Landing pages, portais e sistemas sob medida para PMEs. Tecnologia premium, sem complicação.
             </p>
             <div className="flex justify-center lg:justify-start">
-              <Button size="lg" asChild className="transform transition-transform hover:scale-105">
+              <Button size="lg" asChild className="transform transition-transform hover:scale-105 animate-pulse">
                 <Link href="#contact">
                   <MessageSquare className="mr-2 h-5 w-5" />
                   Quero meu projeto
