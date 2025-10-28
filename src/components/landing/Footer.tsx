@@ -13,7 +13,7 @@ const navLinks = [
 const socialLinks = [
   { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/company/propagounegocios/", name: "LinkedIn" },
   { icon: <Instagram className="h-5 w-5" />, href: "https://www.instagram.com/propagounegocios/", name: "Instagram" },
-  { icon: <Github className="h-5 w-5" />, href: "https://github.com/propagounegocios", name: "GitHub" },
+  { icon: <Github className="h-5 w-5" />, href: "https://github.com/JaysonRW", name: "GitHub" },
 ];
 
 export default function Footer() {
