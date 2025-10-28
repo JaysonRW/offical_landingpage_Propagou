@@ -1,0 +1,77 @@
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Zap, CalendarDays, Users } from 'lucide-react';
+import Link from 'next/link';
+
+const benefits = [
+  {
+    icon: <Zap className="h-8 w-8 text-primary" />,
+    title: 'Personalização Total',
+    description: 'Soluções criadas do zero para atender às necessidades únicas do seu negócio.',
+  },
+  {
+    icon: <CalendarDays className="h-8 w-8 text-primary" />,
+    title: 'Entrega em até 15 dias',
+    description: 'Seu projeto de landing page ou portal pronto em tempo recorde, sem atrasos.',
+  },
+  {
+    icon: <Users className="h-8 w-8 text-primary" />,
+    title: 'Suporte Humano 24h',
+    description: 'Acesso direto a um especialista para tirar dúvidas e fazer ajustes, sempre que precisar.',
+  },
+];
+
+export default function Hero() {
+  return (
+    <section id="hero" className="relative w-full py-20 md:py-32 lg:py-40 overflow-hidden">
+      <div aria-hidden="true" className="absolute inset-0 z-0 bg-gradient-radial-hero" />
+      <div aria-hidden="true" className="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+      <div aria-hidden="true" className="absolute bottom-1/4 left-0 w-96 h-96 bg-pink-accent/10 rounded-full blur-3xl animate-pulse delay-500" />
+
+      <div className="container mx-auto px-4 md:px-6 z-10 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6 text-center lg:text-left animate-in fade-in slide-in-from-bottom-12 duration-700">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400">
+              SaaS personalizado para o seu negócio crescer de verdade
+            </h1>
+            <p className="max-w-2xl mx-auto lg:mx-0 text-lg md:text-xl text-muted-foreground">
+              Landing pages, portais e sistemas sob medida para PMEs. Tecnologia premium, sem complicação.
+            </p>
+            <div className="flex justify-center lg:justify-start">
+              <Button size="lg" asChild>
+                <Link href="#contact">Quero meu projeto</Link>
+              </Button>
+            </div>
+          </div>
+          <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-bottom-12 duration-700 delay-200">
+             <Image
+                src="https://picsum.photos/seed/hero/800/600"
+                alt="Ilustração de tecnologia abstrata"
+                width={800}
+                height={600}
+                className="rounded-xl shadow-2xl shadow-primary/10"
+                data-ai-hint="abstract technology"
+                priority
+              />
+          </div>
+        </div>
+        <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map((benefit, index) => (
+            <div key={benefit.title} className="animate-in fade-in slide-in-from-bottom-12 duration-700" style={{animationDelay: `${400 + index * 100}ms`}}>
+              <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-1 h-full">
+                <CardHeader className="flex flex-row items-center gap-4 pb-4">
+                  {benefit.icon}
+                  <CardTitle className="text-xl font-semibold">{benefit.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{benefit.description}</p>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
