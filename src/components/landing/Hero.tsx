@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Zap, CalendarDays, Users, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
+import { placeholderImages } from '@/lib/placeholder-images';
 
 const benefits = [
   {
@@ -21,6 +22,8 @@ const benefits = [
     description: 'Acesso direto a um especialista para tirar dúvidas e fazer ajustes, sempre que precisar.',
   },
 ];
+
+const heroImage = placeholderImages.find((img) => img.id === 'hero-image');
 
 export default function Hero() {
   return (
@@ -41,7 +44,7 @@ export default function Hero() {
               Landing pages, portais e sistemas sob medida para PMEs. Tecnologia premium, sem complicação.
             </p>
             <div className="flex justify-center lg:justify-start">
-              <Button size="lg" asChild className="transform transition-transform hover:scale-105 animate-pulse">
+              <Button size="lg" asChild className="transform transition-transform hover:scale-105 animate-pulse text-white">
                 <Link href="#contact">
                   <MessageSquare className="mr-2 h-5 w-5" />
                   Quero meu projeto
@@ -51,12 +54,12 @@ export default function Hero() {
           </div>
           <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-bottom-12 duration-700 delay-200">
              <Image
-                src="https://picsum.photos/seed/hero/800/600"
-                alt="Ilustração de tecnologia abstrata"
+                src={heroImage?.imageUrl || "https://picsum.photos/seed/hero/800/600"}
+                alt={heroImage?.description || "Ilustração de tecnologia abstrata"}
                 width={800}
                 height={600}
                 className="rounded-xl shadow-2xl shadow-primary/10 transition-all duration-300 hover:shadow-primary/20 hover:scale-105"
-                data-ai-hint="abstract technology"
+                data-ai-hint={heroImage?.imageHint || "abstract technology"}
                 priority
               />
           </div>
