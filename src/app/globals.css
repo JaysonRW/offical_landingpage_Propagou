@@ -60,7 +60,16 @@
 }
 
 @layer utilities {
-  .bg-gradient-radial-hero {
-    background-image: radial-gradient(circle at 50% 50%, hsl(var(--card)) 0%, hsl(var(--background)) 70%);
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(to right, hsl(var(--primary) / 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+    background-size: 3rem 3rem;
+    animation: pan-grid 20s linear infinite;
+  }
+
+  @keyframes pan-grid {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 3rem 3rem; }
   }
 }

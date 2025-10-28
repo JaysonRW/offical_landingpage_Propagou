@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Zap, CalendarDays, Users } from 'lucide-react';
+import { Zap, CalendarDays, Users, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 
 const benefits = [
@@ -25,9 +25,11 @@ const benefits = [
 export default function Hero() {
   return (
     <section id="hero" className="relative w-full py-20 md:py-32 lg:py-40 overflow-hidden">
-      <div aria-hidden="true" className="absolute inset-0 z-0 bg-gradient-radial-hero" />
-      <div aria-hidden="true" className="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-      <div aria-hidden="true" className="absolute bottom-1/4 left-0 w-96 h-96 bg-pink-accent/10 rounded-full blur-3xl animate-pulse delay-500" />
+      <div className="absolute inset-0 z-0 bg-background">
+        <div className="absolute inset-0 bg-grid-pattern" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-radial from-background via-transparent to-transparent" />
+      </div>
 
       <div className="container mx-auto px-4 md:px-6 z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -39,8 +41,11 @@ export default function Hero() {
               Landing pages, portais e sistemas sob medida para PMEs. Tecnologia premium, sem complicação.
             </p>
             <div className="flex justify-center lg:justify-start">
-              <Button size="lg" asChild>
-                <Link href="#contact">Quero meu projeto</Link>
+              <Button size="lg" asChild className="transform transition-transform hover:scale-105">
+                <Link href="#contact">
+                  <MessageSquare className="mr-2 h-5 w-5" />
+                  Quero meu projeto
+                </Link>
               </Button>
             </div>
           </div>
@@ -50,7 +55,7 @@ export default function Hero() {
                 alt="Ilustração de tecnologia abstrata"
                 width={800}
                 height={600}
-                className="rounded-xl shadow-2xl shadow-primary/10"
+                className="rounded-xl shadow-2xl shadow-primary/10 transition-all duration-300 hover:shadow-primary/20 hover:scale-105"
                 data-ai-hint="abstract technology"
                 priority
               />
