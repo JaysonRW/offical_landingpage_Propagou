@@ -35,10 +35,10 @@ export default function Hero() {
       <div className="container mx-auto px-4 md:px-6 z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 text-center lg:text-left animate-in fade-in slide-in-from-bottom-12 duration-700">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300">
               SaaS personalizado para o seu negócio crescer de verdade
             </h1>
-            <p className="max-w-2xl mx-auto lg:mx-0 text-lg md:text-xl text-muted-foreground">
+            <p className="max-w-2xl mx-auto lg:mx-0 text-lg md:text-xl text-gray-300">
               Landing pages, portais e sistemas sob medida para PMEs. Tecnologia premium, sem complicação.
             </p>
             <div className="flex justify-center lg:justify-start">
