@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Rocket } from 'lucide-react';
+import { Menu, Rocket, MessageSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -55,8 +55,11 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Button asChild>
-            <Link href="#contact">Fale com um especialista</Link>
+          <Button asChild className="transform transition-transform hover:scale-105">
+            <Link href="#contact">
+              <MessageSquare className="mr-2 h-4 w-4" />
+              Fale com um especialista
+            </Link>
           </Button>
         </div>
 
@@ -94,6 +97,7 @@ export default function Header() {
                       href="#contact"
                       onClick={() => setIsMenuOpen(false)}
                     >
+                      <MessageSquare className="mr-2 h-4 w-4" />
                       Fale com um especialista
                     </Link>
                   </Button>
