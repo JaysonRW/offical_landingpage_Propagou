@@ -11,9 +11,9 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { icon: <Linkedin className="h-5 w-5" />, href: "#", name: "LinkedIn" },
+  { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/company/propagounegocios/", name: "LinkedIn" },
   { icon: <Instagram className="h-5 w-5" />, href: "#", name: "Instagram" },
-  { icon: <Github className="h-5 w-5" />, href: "#", name: "GitHub" },
+  { icon: <Github className="h-5 w-5" />, href: "https://github.com/propagounegocios", name: "GitHub" },
 ];
 
 export default function Footer() {
@@ -55,7 +55,7 @@ export default function Footer() {
                <div className="flex space-x-4">
                 {socialLinks.map(social => (
                   <Button key={social.name} variant="ghost" size="icon" asChild>
-                    <a href={social.href} aria-label={social.name}>{social.icon}</a>
+                    <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.name}>{social.icon}</a>
                   </Button>
                 ))}
               </div>
