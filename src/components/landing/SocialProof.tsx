@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import AnimatedCounter from './AnimatedCounter';
 import { placeholderImages } from '@/lib/placeholder-images';
+import { cn } from '@/lib/utils';
 
 const stats = [
   { value: 50, label: 'Projetos entregues', suffix: '+' },
@@ -27,20 +28,22 @@ export default function SocialProof() {
         </div>
         <div className="mt-16">
           <p className="text-center text-lg text-muted-foreground mb-8">Confiado por empresas inovadoras</p>
-          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
-            {clientLogos.map((logo) => (
-              <div key={logo.id} className="relative h-10 w-32" title={logo.description}>
-                 <Image
-                  src={logo.imageUrl}
-                  alt={logo.description}
-                  fill
-                  style={{ objectFit: 'contain' }}
-                  className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
-                  data-ai-hint={logo.imageHint}
-                  sizes="128px"
-                />
-              </div>
-            ))}
+          <div className="scroller" data-animated="true">
+            <div className="scroller__inner flex w-max gap-12 animate-scroll">
+              {[...clientLogos, ...clientLogos].map((logo, index) => (
+                <div key={`${logo.id}-${index}`} className="relative h-10 w-32 flex-shrink-0" title={logo.description}>
+                   <Image
+                    src={logo.imageUrl}
+                    alt={logo.description}
+                    fill
+                    style={{ objectFit: 'contain' }}
+                    className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                    data-ai-hint={logo.imageHint}
+                    sizes="128px"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
