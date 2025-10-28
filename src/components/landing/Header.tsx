@@ -38,7 +38,7 @@ export default function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="#hero" className="flex items-center gap-2" aria-label="Página inicial Propagou Negócios">
-          <Rocket className="h-7 w-7 text-primary" />
+          <Rocket className="h-7 w-7 text-primary animate-float" />
           <span className="text-2xl font-bold font-headline">Propagou Negócios</span>
         </Link>
 

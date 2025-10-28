@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <Link href="#hero" className="flex items-center gap-2">
-              <Rocket className="h-7 w-7 text-primary" />
+              <Rocket className="h-7 w-7 text-primary animate-float" />
               <span className="text-2xl font-bold font-headline">Propagou Negócios</span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-xs">
