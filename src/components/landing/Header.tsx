@@ -37,9 +37,9 @@ export default function Header() {
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="#hero" className="flex items-center gap-2" aria-label="Página inicial DevCraft">
+        <Link href="#hero" className="flex items-center gap-2" aria-label="Página inicial Propagou Negócios">
           <Rocket className="h-7 w-7 text-primary" />
-          <span className="text-2xl font-bold font-headline">DevCraft</span>
+          <span className="text-2xl font-bold font-headline">Propagou Negócios</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -73,7 +73,7 @@ export default function Header() {
                 <div className="flex items-center gap-2 p-4 border-b border-border">
                   <Rocket className="h-7 w-7 text-primary" />
                   <span className="text-xl font-bold font-headline">
-                    DevCraft
+                    Propagou Negócios
                   </span>
                 </div>
                 <nav className="flex flex-grow flex-col gap-4 p-4">

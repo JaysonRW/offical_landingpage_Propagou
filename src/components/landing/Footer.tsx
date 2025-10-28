@@ -24,7 +24,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="#hero" className="flex items-center gap-2">
               <Rocket className="h-7 w-7 text-primary" />
-              <span className="text-2xl font-bold font-headline">DevCraft</span>
+              <span className="text-2xl font-bold font-headline">Propagou Negócios</span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-xs">
               Transformando ideias em realidade digital com tecnologia de ponta.
@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-border mt-8 pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} DevCraft. Todos os direitos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Propagou Negócios. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
