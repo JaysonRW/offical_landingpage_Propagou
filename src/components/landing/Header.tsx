@@ -55,12 +55,15 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Button asChild className="transform transition-transform hover:scale-105">
-            <Link href="#contact">
-              <MessageSquare className="mr-2 h-4 w-4" />
-              Fale com um especialista
-            </Link>
-          </Button>
+           <div className="glowing-wrapper-borders-masker">
+              <div className="glowing-wrapper-borders"></div>
+              <Button asChild className="relative z-20 transform transition-transform hover:scale-105">
+                <Link href="#contact">
+                  <MessageSquare className="mr-2 h-4 w-4" />
+                  Fale com um especialista
+                </Link>
+              </Button>
+            </div>
         </div>
 
         <div className="md:hidden">
