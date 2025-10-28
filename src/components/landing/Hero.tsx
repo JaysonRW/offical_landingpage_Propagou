@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Zap, CalendarDays, Users, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 import { placeholderImages } from '@/lib/placeholder-images';
+import VantaBackground from './VantaBackground';
 
 const benefits = [
   {
@@ -28,12 +29,9 @@ const heroImage = placeholderImages.find((img) => img.id === 'hero-image');
 export default function Hero() {
   return (
     <section id="hero" className="relative w-full py-20 md:py-32 lg:py-40 overflow-hidden">
-      <div className="absolute inset-0 z-0 bg-background">
-        <div className="absolute inset-0 bg-grid-pattern" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-radial from-background via-transparent to-transparent" />
-      </div>
-
+      <VantaBackground />
+      <div className="absolute inset-0 z-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+      
       <div className="container mx-auto px-4 md:px-6 z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 text-center lg:text-left animate-in fade-in slide-in-from-bottom-12 duration-700">
