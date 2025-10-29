@@ -51,6 +51,12 @@ const projectsData: Project[] = placeholderImages
       title = 'Portal do Condomínio';
       description = 'Um portal exclusivo para moradores do Condomínio Collina Belvedere, com acesso a comunicados, agendamento de áreas comuns e documentos importantes.';
       demoUrl = 'https://projeto-condominio-collina.vercel.app/#home';
+    } else if (img.id === 'project-4') {
+      title = 'Portal Poker Hands Pro';
+      description = 'Uma plataforma para análise e estudo de mãos de poker, com estatísticas detalhadas e simulação de cenários para jogadores profissionais.';
+      tags = ['SaaS', 'Poker', 'Analytics'];
+      tech = ['React', 'Chart.js', 'Node.js'];
+      demoUrl = '#';
     }
     
     return {
