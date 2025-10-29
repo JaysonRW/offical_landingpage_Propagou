@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -15,6 +16,7 @@ const LeadQualityEstimationInputSchema = z.object({
   name: z.string().describe('The name of the lead.'),
   whatsapp: z.string().describe('The WhatsApp number of the lead.'),
   email: z.string().email().describe('The email address of the lead.'),
+  projectType: z.string().describe('The type of project the lead is interested in.'),
   message: z.string().describe('The message from the lead.'),
 });
 
@@ -62,11 +64,12 @@ Lead Information:
 - Name: {{{name}}}
 - WhatsApp: {{{whatsapp}}}
 - Email: {{{email}}}
+- Project Type: {{{projectType}}}
 - Message: {{{message}}}
 
 Consider factors such as the completeness of the information, the clarity of
-the message, and any indications of serious intent. A higher score indicates a
-higher quality lead.
+the message, the type of project, and any indications of serious intent (e.g., urgency, budget mentions). A higher score indicates a
+higher quality lead. For example, a 'SaaS' or 'Portal Personalizado' project is generally of higher value.
 
 Output the quality score, the reasoning behind the score, and whether to flag
 the lead for sales.

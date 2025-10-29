@@ -10,6 +10,13 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { handleContactForm, type FormState } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
@@ -19,6 +26,7 @@ const contactSchema = z.object({
   name: z.string().min(1, 'Nome é obrigatório'),
   whatsapp: z.string().min(1, 'WhatsApp é obrigatório'),
   email: z.string().email('E-mail inválido'),
+  projectType: z.string().min(1, 'Tipo de projeto é obrigatório'),
   message: z.string().min(1, 'Mensagem é obrigatória'),
 });
 
@@ -51,7 +59,7 @@ export function ContactForm() {
 
   const form = useForm({
     resolver: zodResolver(contactSchema),
-    defaultValues: { name: '', whatsapp: '', email: '', message: '' },
+    defaultValues: { name: '', whatsapp: '', email: '', projectType: '', message: '' },
   });
 
   useEffect(() => {
@@ -118,6 +126,29 @@ export function ContactForm() {
             )}
           />
         </div>
+        <FormField
+          control={form.control}
+          name="projectType"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Tipo de Projeto</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Selecione o tipo de projeto" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="saas">SaaS</SelectItem>
+                  <SelectItem value="site">Site Institucional</SelectItem>
+                  <SelectItem value="landing-page">Landing Page</SelectItem>
+                  <SelectItem value="portal-personalizado">Portal Personalizado</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage>{state.fields?.projectType}</FormMessage>
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="message"

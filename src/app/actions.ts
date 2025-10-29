@@ -11,6 +11,9 @@ const contactSchema = z.object({
   name: z.string().min(2, 'O nome é muito curto'),
   whatsapp: z.string().min(8, 'Número de WhatsApp inválido'),
   email: z.string().email('Endereço de e-mail inválido'),
+  projectType: z.enum(['saas', 'site', 'landing-page', 'portal-personalizado'], {
+    errorMap: () => ({ message: 'Selecione um tipo de projeto válido.' }),
+  }),
   message: z.string().min(10, 'A mensagem é muito curta').max(500, 'A mensagem é muito longa'),
 });
 
@@ -38,6 +41,7 @@ export async function handleContactForm(
         name: fieldErrors.name?.[0],
         whatsapp: fieldErrors.whatsapp?.[0],
         email: fieldErrors.email?.[0],
+        projectType: fieldErrors.projectType?.[0],
         message: fieldErrors.message?.[0],
       },
       isSuccess: false,
@@ -48,8 +52,8 @@ export async function handleContactForm(
   try {
     const aiResponse = await estimateLeadQuality(parsed.data);
 
-    const { name, email, message } = parsed.data;
-    const whatsappMessage = `Olá! Tenho interesse nos seus serviços.\n\n*Nome:* ${name}\n*Email:* ${email}\n\n*Mensagem:*\n${message}`;
+    const { name, email, projectType, message } = parsed.data;
+    const whatsappMessage = `Olá! Tenho interesse nos seus serviços.\n\n*Nome:* ${name}\n*Email:* ${email}\n*Tipo de Projeto:* ${projectType}\n\n*Mensagem:*\n${message}`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
     const whatsappUrl = `https://wa.me/5541995343245?text=${encodedMessage}`;
 
