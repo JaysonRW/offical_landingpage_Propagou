@@ -27,8 +27,10 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 md:py-28 bg-card">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="services" className="py-20 md:py-28 bg-grid-pattern relative">
+      <div className="absolute inset-0 bg-background/80 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+
+      <div className="container mx-auto px-4 md:px-6 relative">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-500">Soluções que impulsionam</h2>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
@@ -37,7 +39,7 @@ export default function Services() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service) => (
-            <Card key={service.title} className="p-6 flex items-start gap-6 hover:border-primary/50 transition-colors duration-300 transform hover:-translate-y-1">
+            <Card key={service.title} className="p-6 flex items-start gap-6 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-colors duration-300 transform hover:-translate-y-1">
               <div className="shrink-0">{service.icon}</div>
               <div>
                 <CardTitle className="mb-2 text-xl">{service.title}</CardTitle>
