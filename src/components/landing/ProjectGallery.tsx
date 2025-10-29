@@ -30,16 +30,25 @@ type Project = {
 
 const projectsData: Project[] = placeholderImages
   .filter((img) => img.id.startsWith('project-'))
-  .map((img, i) => ({
-    id: img.id,
-    title: i % 2 === 0 ? `GestãoPro - ERP` : `Connecta CRM`,
-    description: `Um sistema de ${i % 2 === 0 ? 'ERP completo para clínicas' : 'CRM para equipes de vendas'}, otimizando ${i % 2 === 0 ? 'agendamentos e prontuários' : 'leads e funis de venda'} com uma interface intuitiva e automações inteligentes.`,
-    tags: ['SaaS', 'Dashboard', 'Automação'],
-    imageUrl: img.imageUrl,
-    imageHint: img.imageHint,
-    tech: ['Next.js', 'Tailwind CSS', 'Firebase', 'Stripe'],
-    demoUrl: '#',
-  }));
+  .map((img, i) => {
+    let title = i % 2 === 0 ? `GestãoPro - ERP` : `Connecta CRM`;
+    let description = `Um sistema de ${i % 2 === 0 ? 'ERP completo para clínicas' : 'CRM para equipes de vendas'}, otimizando ${i % 2 === 0 ? 'agendamentos e prontuários' : 'leads e funis de venda'} com uma interface intuitiva e automações inteligentes.`;
+    if (img.id === 'project-3') {
+      title = 'Portal do Condomínio';
+      description = 'Um portal exclusivo para moradores do Condomínio Collina Belvedere, com acesso a comunicados, agendamento de áreas comuns e documentos importantes.';
+    }
+    
+    return {
+      id: img.id,
+      title: title,
+      description: description,
+      tags: ['SaaS', 'Dashboard', 'Automação'],
+      imageUrl: img.imageUrl,
+      imageHint: img.imageHint,
+      tech: ['Next.js', 'Tailwind CSS', 'Firebase', 'Stripe'],
+      demoUrl: '#',
+    }
+  });
 
 export default function ProjectGallery() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
