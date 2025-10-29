@@ -41,10 +41,10 @@ const faqItems = [
 export default function Faq() {
   return (
     <section id="faq" className="py-20 md:py-28 bg-background relative overflow-hidden">
-       <div className="absolute inset-0 z-0">
-        <div className="absolute bottom-0 left-0 right-0 top-0 bg-grid-pattern"></div>
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,hsl(var(--primary)/0.15),transparent)]"></div>
-      </div>
+       <div 
+        className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-[150%] h-[150%] bg-[radial-gradient(ellipse_at_center,hsl(var(--primary)/0.1),transparent_40%)] -z-10"
+        aria-hidden="true"
+       />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
@@ -55,7 +55,7 @@ export default function Faq() {
             Tudo o que você precisa saber antes de começar seu projeto conosco.
           </p>
         </div>
-        <div className="max-w-3xl mx-auto bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-4">
+        <div className="max-w-3xl mx-auto bg-card/50 backdrop-blur-lg border border-border/50 rounded-lg p-4">
           <Accordion type="single" collapsible className="w-full">
             {faqItems.map((item, index) => (
               <AccordionItem value={`item-${index}`} key={index} className={index === faqItems.length - 1 ? 'border-b-0' : ''}>
