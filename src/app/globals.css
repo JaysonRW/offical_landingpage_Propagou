@@ -139,8 +139,4 @@
   .scroller[data-animated='true'] .scroller__inner {
     animation: scroll 40s linear infinite;
   }
-
-  .bg-grid-pattern {
-    background-size: 40px 40px;
-  }
 }
