@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useFormState, useFormStatus } from 'react-dom';
@@ -25,7 +26,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending} className="w-full">
-      {pending ? <Loader2 className="animate-spin" /> : 'Enviar Mensagem'}
+      {pending ? <Loader2 className="animate-spin" /> : 'Enviar e Abrir no WhatsApp'}
     </Button>
   );
 }
@@ -51,6 +52,9 @@ export function ContactForm() {
         duration: 8000,
       });
       form.reset();
+      if (state.whatsappUrl) {
+        window.open(state.whatsappUrl, '_blank');
+      }
     } else if (state.isError) {
       toast({
         variant: 'destructive',

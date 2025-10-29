@@ -20,6 +20,7 @@ export type FormState = {
   isSuccess: boolean;
   isError: boolean;
   aiResponse?: LeadQualityEstimationOutput;
+  whatsappUrl?: string;
 };
 
 export async function handleContactForm(
@@ -47,18 +48,22 @@ export async function handleContactForm(
   try {
     const aiResponse = await estimateLeadQuality(parsed.data);
 
-    // In a real app, you would send an email, save to DB, etc. here.
-    // For this demo, we'll just return the AI's analysis.
+    const { name, email, message } = parsed.data;
+    const whatsappMessage = `Olá! Tenho interesse nos seus serviços.\n\n*Nome:* ${name}\n*Email:* ${email}\n\n*Mensagem:*\n${message}`;
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/5541995343245?text=${encodedMessage}`;
+
 
     const successMessage = aiResponse.flagForSales
-      ? `Obrigado! Sua solicitação é de alta prioridade. Entraremos em contato em breve. (Análise da IA: ${aiResponse.reason})`
-      : `Obrigado pela sua mensagem! Entraremos em contato em breve. (Análise da IA: ${aiResponse.reason})`;
+      ? `Obrigado! Sua solicitação é de alta prioridade. Estamos te redirecionando para o WhatsApp. (Análise da IA: ${aiResponse.reason})`
+      : `Obrigado pela sua mensagem! Estamos te redirecionando para o WhatsApp. (Análise da IA: ${aiResponse.reason})`;
 
     return {
       message: successMessage,
       isSuccess: true,
       isError: false,
       aiResponse,
+      whatsappUrl: whatsappUrl,
     };
   } catch (error) {
     console.error('Error handling contact form:', error);
