@@ -47,8 +47,12 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 md:py-28 bg-card">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="pricing" className="py-20 md:py-28 relative overflow-hidden bg-background">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,hsl(var(--foreground)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--foreground)/0.05)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_400px_at_50%_100px,hsl(var(--primary)/0.15),transparent)]"></div>
+      </div>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-500">Planos flexíveis para cada necessidade</h2>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
@@ -60,7 +64,7 @@ export default function Pricing() {
             <Card
               key={plan.name}
               className={cn(
-                "flex flex-col h-full",
+                "flex flex-col h-full bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-300 transform hover:-translate-y-1",
                 plan.isPopular && "border-2 border-primary shadow-primary/20 shadow-lg"
               )}
             >
