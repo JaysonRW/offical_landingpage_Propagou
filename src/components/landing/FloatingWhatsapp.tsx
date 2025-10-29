@@ -4,7 +4,7 @@ import { MessageSquare } from "lucide-react";
 export default function FloatingWhatsapp() {
   return (
     <a
-      href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20um%20projeto."
+      href="https://wa.me/5541995343245?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20um%20projeto."
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-40"
