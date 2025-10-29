@@ -48,6 +48,7 @@ const projectsData: Project[] = placeholderImages
       title = 'Portal de Agendamentos para Barbearias';
       description = 'Um sistema de agendamento completo para barbearias, permitindo que clientes marquem horários online e o proprietário gerencie sua agenda.';
       tags = ['SaaS', 'Agendamento', 'Barbearia'];
+      demoUrl = 'https://barbershopagendamentos.vercel.app/';
     } else if (img.id === 'project-3') {
       title = 'Portal do Condomínio';
       description = 'Um portal exclusivo para moradores do Condomínio Collina Belvedere, com acesso a comunicados, agendamento de áreas comuns e documentos importantes.';
