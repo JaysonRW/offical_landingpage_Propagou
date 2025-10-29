@@ -56,7 +56,7 @@
   
   @property --glowColor {
     syntax: '<color>';
-    initial-value: hsl(var(--primary));
+    initial-value: #6366F1; /* Static fallback color */
     inherits: false;
   }
 }
