@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Zap, CalendarDays, Users, ArrowRight } from 'lucide-react';
+import { Zap, CalendarDays, Users } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import VantaBackground from './VantaBackground';
@@ -73,7 +73,7 @@ export default function Hero() {
                   />
                   )}
                   <div className="text-left">
-                      <p className="font-semibold text-base text-white">Fale com o especialista, Jayson Walter</p>
+                      <p className="font-semibold text-base text-white">Chamada Gratuita de Estratégia de Marketing</p>
                       <p className="text-sm text-gray-400">Sem compromisso</p>
                   </div>
               </div>
