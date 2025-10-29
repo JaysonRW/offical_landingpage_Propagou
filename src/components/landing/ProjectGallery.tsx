@@ -33,9 +33,12 @@ const projectsData: Project[] = placeholderImages
   .map((img, i) => {
     let title = i % 2 === 0 ? `GestãoPro - ERP` : `Connecta CRM`;
     let description = `Um sistema de ${i % 2 === 0 ? 'ERP completo para clínicas' : 'CRM para equipes de vendas'}, otimizando ${i % 2 === 0 ? 'agendamentos e prontuários' : 'leads e funis de venda'} com uma interface intuitiva e automações inteligentes.`;
+    let demoUrl = '#';
+
     if (img.id === 'project-3') {
       title = 'Portal do Condomínio';
       description = 'Um portal exclusivo para moradores do Condomínio Collina Belvedere, com acesso a comunicados, agendamento de áreas comuns e documentos importantes.';
+      demoUrl = 'https://projeto-condominio-collina.vercel.app/#home';
     }
     
     return {
@@ -46,7 +49,7 @@ const projectsData: Project[] = placeholderImages
       imageUrl: img.imageUrl,
       imageHint: img.imageHint,
       tech: ['Next.js', 'Tailwind CSS', 'Firebase', 'Stripe'],
-      demoUrl: '#',
+      demoUrl: demoUrl,
     }
   });
 
