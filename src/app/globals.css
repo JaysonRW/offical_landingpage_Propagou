@@ -139,4 +139,30 @@
   .scroller[data-animated='true'] .scroller__inner {
     animation: scroll 40s linear infinite;
   }
+
+  .shimmer-button {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(110deg, transparent 30%, hsl(var(--primary) / 0.2), transparent 70%);
+    animation: shimmer-wave 3s infinite linear;
+    transform: translateX(-100%);
+  }
+  
+  @keyframes shimmer-wave {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
 }
