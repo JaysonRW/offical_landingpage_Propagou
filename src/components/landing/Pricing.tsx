@@ -48,17 +48,13 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 md:py-28 relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="https://i.ibb.co/Tqdz3DT/Image-fx-2.jpg"
-          alt="Abstract technology background"
-          fill
-          style={{ objectFit: 'cover' }}
-          className="blur-md"
-        />
-        <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
-      </div>
+    <section id="pricing" className="py-20 md:py-28 relative overflow-hidden bg-black">
+      <div 
+        className="absolute inset-0 z-0 opacity-20"
+        style={{
+          background: 'radial-gradient(circle at top left, hsl(var(--primary)/0.3), transparent 30%), radial-gradient(circle at bottom right, #FF69B4, transparent 40%)'
+        }}
+      />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-500">Planos flexíveis para cada necessidade</h2>
@@ -67,41 +63,54 @@ export default function Pricing() {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {plans.map((plan, index) => (
-            <Card
+          {plans.map((plan) => (
+            <div
               key={plan.name}
               className={cn(
-                "flex flex-col h-full bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-300 transform hover:-translate-y-1",
-                plan.isPopular && "border-2 border-primary shadow-primary/20 shadow-lg"
+                "relative rounded-lg p-px group",
+                plan.isPopular 
+                  ? "bg-gradient-to-b from-blue-500 to-pink-500" 
+                  : "bg-gray-800"
               )}
             >
-              {plan.isPopular && (
-                <Badge className="absolute -top-3 right-5">Mais Popular</Badge>
-              )}
-              <CardHeader>
-                <CardTitle className="text-2xl font-headline">{plan.name}</CardTitle>
-                <CardDescription>{plan.description}</CardDescription>
-                <div className="pt-4">
-                  <span className="text-4xl font-bold">{plan.price}</span>
-                  <span className="text-sm text-muted-foreground">{plan.name === "Start" || plan.name === "Pro" ? " / projeto" : ""}</span>
-                </div>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <ul className="space-y-3">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start">
-                      <Check className="h-5 w-5 text-green-500 mr-2 mt-1 shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <Button className="w-full" variant={plan.isPopular ? "default" : "outline"}>
-                  Escolher Plano
-                </Button>
-              </CardFooter>
-            </Card>
+              <Card
+                className={cn(
+                  "relative flex flex-col h-full bg-[#0D0D0D] rounded-[7px] border-none transition-all duration-300 group-hover:bg-[#1a1a1a]"
+                )}
+              >
+                {plan.isPopular && (
+                  <Badge className="absolute -top-3 right-5 bg-blue-500 text-white border-none">Mais Popular</Badge>
+                )}
+                <CardHeader className="pt-8">
+                  <CardTitle className="text-2xl font-headline text-white">{plan.name}</CardTitle>
+                  <div className="pt-4">
+                    <span className="text-4xl font-bold text-blue-400">{plan.price}</span>
+                    <span className="text-sm text-gray-400">{plan.name === "Start" || plan.name === "Pro" ? " / projeto" : ""}</span>
+                  </div>
+                  <CardDescription className="pt-2 !text-gray-400">{plan.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow pt-4">
+                  <ul className="space-y-3">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start">
+                        <Check className="h-5 w-5 text-blue-400 mr-3 mt-1 shrink-0" />
+                        <span className="text-gray-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter className="p-6">
+                  <Button className={cn(
+                      "w-full font-bold text-lg py-6 transition-all duration-300",
+                      plan.isPopular 
+                        ? "bg-blue-500 text-white hover:bg-blue-600 shadow-[0_0_15px_rgba(0,191,255,0.5)] hover:shadow-[0_0_25px_rgba(0,191,255,0.8)]"
+                        : "bg-gray-700 text-white hover:bg-gray-600"
+                    )}>
+                    Escolher Plano
+                  </Button>
+                </CardFooter>
+              </Card>
+            </div>
           ))}
         </div>
       </div>
