@@ -1,9 +1,7 @@
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Zap, CalendarDays, Users, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
-import { placeholderImages } from '@/lib/placeholder-images';
 import VantaBackground from './VantaBackground';
 
 const benefits = [
@@ -23,8 +21,6 @@ const benefits = [
     description: 'Acesso direto a um especialista para tirar dúvidas e fazer ajustes, sempre que precisar.',
   },
 ];
-
-const heroImage = placeholderImages.find((img) => img.id === 'hero-image');
 
 export default function Hero() {
   return (
@@ -53,16 +49,15 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-bottom-12 duration-700 delay-200">
-             <Image
-                src={heroImage?.imageUrl || "https://picsum.photos/seed/hero/800/600"}
-                alt={heroImage?.description || "Ilustração de tecnologia abstrata"}
-                width={800}
-                height={600}
-                className="rounded-xl shadow-2xl shadow-primary/10 transition-all duration-300 hover:shadow-primary/20 hover:scale-105"
-                data-ai-hint={heroImage?.imageHint || "abstract technology"}
-                priority
-              />
+          <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-bottom-12 duration-700 delay-200 aspect-video">
+             <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-xl shadow-2xl shadow-primary/10"
+                src="https://www.youtube.com/embed/6GGEJacURHk?autoplay=1&mute=1&loop=1&playlist=6GGEJacURHk&controls=0&showinfo=0&autohide=1"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
           </div>
         </div>
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
