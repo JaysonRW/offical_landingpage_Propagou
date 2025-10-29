@@ -32,7 +32,7 @@ export default function SocialProof() {
           <div className="scroller" data-animated="true">
             <div className="scroller__inner flex w-max gap-12 animate-scroll">
               {[...clientLogos, ...clientLogos].map((logo, index) => (
-                <div key={`${logo.id}-${index}`} className="relative h-10 w-32 flex-shrink-0" title={logo.description}>
+                <div key={`${logo.id}-${index}`} className="relative h-16 w-40 flex-shrink-0" title={logo.description}>
                    <Image
                     src={logo.imageUrl}
                     alt={logo.description}
@@ -40,7 +40,7 @@ export default function SocialProof() {
                     style={{ objectFit: 'contain' }}
                     className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
                     data-ai-hint={logo.imageHint}
-                    sizes="128px"
+                    sizes="160px"
                   />
                 </div>
               ))}
