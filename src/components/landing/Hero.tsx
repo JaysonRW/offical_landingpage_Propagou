@@ -1,7 +1,10 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Zap, CalendarDays, Users } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { placeholderImages } from '@/lib/placeholder-images';
 import VantaBackground from './VantaBackground';
 
 const benefits = [
@@ -26,6 +29,8 @@ const benefits = [
 ];
 
 export default function Hero() {
+  const founderImage = placeholderImages.find((img) => img.id === 'founder');
+
   return (
     <section
       id="hero"
@@ -45,16 +50,36 @@ export default function Hero() {
               premium, sem complicação.
             </p>
 
-            <div className="flex justify-center pt-4">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
               <div className="glowing-wrapper-borders-masker">
                 <div className="glowing-wrapper-borders"></div>
                 <Button asChild size="lg" className="relative z-20 transform transition-transform hover:scale-105">
-                  <Link href="#contact">
-                    Fale com Especialista
-                  </Link>
+                  <Link href="#contact">Fale com Especialista</Link>
                 </Button>
               </div>
+
+              <div className="flex items-center gap-4 group">
+                <svg width="60" height="25" viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden sm:block text-primary/70 group-hover:text-primary transition-colors -mr-2 rotate-y-180">
+                  <path d="M1 23.5C14.1667 23.1667 39.1 -6.19999 58.5 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+                  <path d="M54 1L58.5 4L55 7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+                </svg>
+                {founderImage && (
+                  <Image
+                    src={founderImage.imageUrl}
+                    alt={founderImage.description}
+                    width={60}
+                    height={60}
+                    className="rounded-full border-2 border-primary/50 group-hover:border-primary transition-all transform group-hover:scale-110"
+                    data-ai-hint={founderImage.imageHint}
+                  />
+                )}
+                <div className="text-left">
+                  <p className="font-semibold text-base text-white">Com nosso fundador, Jayson Walter.</p>
+                  <p className="text-sm text-gray-400">Sem compromisso.</p>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
