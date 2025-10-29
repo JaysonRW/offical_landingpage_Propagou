@@ -53,7 +53,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
               <div className="glowing-wrapper-borders-masker">
                 <div className="glowing-wrapper-borders"></div>
-                <Button asChild size="lg" className="relative z-20 transform transition-transform hover:scale-105">
+                <Button asChild size="lg" className="relative z-20">
                   <Link href="#contact">
                     Fale com Especialista
                   </Link>
