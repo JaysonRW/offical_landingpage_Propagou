@@ -60,46 +60,62 @@
 }
 
 @layer utilities {
-  .glowing-wrapper-borders-masker {
-    --glow-border-width: 2px;
-    --glow-size: 8px;
-    --glow-color: hsl(var(--primary));
-    position: relative;
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
-
-  .glowing-wrapper-borders-masker::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-      transparent,
-      var(--glow-color),
-      transparent 35%
-    );
-    animation: 4s rotate linear infinite;
-    transform-origin: 50% 50%;
-    transform: translate(-25%, -25%);
-  }
-
-  .glowing-wrapper-borders-masker .glowing-wrapper-borders {
-    position: absolute;
-    inset: var(--glow-border-width);
-    border-radius: calc(var(--radius) - var(--glow-border-width));
-    background: hsl(var(--background));
-    z-index: 10;
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
   }
   
+  @property --glowColor {
+    syntax: '<color>';
+    initial-value: hsl(var(--primary));
+    inherits: false;
+  }
+  
+  .glowing-btn {
+    @apply relative p-px border-none bg-transparent rounded-full;
+  }
+  
+  .glowing-btn::before,
+  .glowing-btn::after {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full rounded-[9999px] bg-no-repeat;
+    background-size: 100% 100%;
+    background-image: conic-gradient(
+      from var(--angle) at 50% 50%,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 33%,
+      var(--glowColor) 50%,
+      rgba(0, 0, 0, 0) 66%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    animation: rotate 4s infinite linear;
+  }
+  
+  .glowing-btn::before {
+    @apply filter blur-2xl;
+  }
+  
+  .glowing-btn .btn-inner {
+    @apply relative z-10 flex items-center justify-center w-full h-full rounded-[9999px] text-primary transition-colors duration-300;
+    background: hsl(var(--background));
+  }
+
+  .glowing-btn:hover .btn-inner {
+    background: hsl(var(--primary) / 0.1);
+  }
+
   @keyframes rotate {
-    from {
-      transform: translate(-25%, -25%) rotate(0turn);
+    0% {
+      --angle: 0deg;
+      --glowColor: hsl(var(--primary));
     }
-    to {
-      transform: translate(-25%, -25%) rotate(1turn);
+    50% {
+      --glowColor: #EC4899; /* pink-accent */
+    }
+    100% {
+      --angle: 360deg;
+      --glowColor: hsl(var(--primary));
     }
   }
 
@@ -139,23 +155,6 @@
   .scroller[data-animated='true'] .scroller__inner {
     animation: scroll 40s linear infinite;
   }
-
-  .shimmer-button {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .shimmer-button::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(110deg, transparent 30%, hsl(var(--primary) / 0.2), transparent 70%);
-    animation: shimmer-wave 3s infinite linear;
-    transform: translateX(-100%);
-  }
   
   @keyframes shimmer-wave {
     0% {
@@ -165,6 +164,13 @@
       transform: translateX(100%);
     }
   }
+
+  @keyframes animStar {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-2000px);
+    }
+  }
 }
-
-

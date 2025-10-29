@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/dialog';
 import { ArrowRight } from 'lucide-react';
 import { placeholderImages } from '@/lib/placeholder-images';
+import ParallaxStars from './ParallaxStars';
 
 type Project = {
   id: string;
@@ -89,8 +90,9 @@ export default function ProjectGallery() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="py-20 md:py-28 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="projects" className="py-20 md:py-28 bg-background relative overflow-hidden">
+      <ParallaxStars />
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-500">
             Veja o que já construímos
@@ -106,7 +108,7 @@ export default function ProjectGallery() {
             {projectsData.map((project) => (
               <Card
                 key={project.id}
-                className="overflow-hidden group hover:shadow-primary/20 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 bg-card border-border"
+                className="overflow-hidden group hover:shadow-primary/20 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 bg-card/80 backdrop-blur-sm border-border"
               >
                 <CardHeader className="p-0">
                   <div className="relative h-56 w-full">
