@@ -25,16 +25,19 @@ const contactSchema = z.object({
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full">
-      {pending ? (
-        <Loader2 className="animate-spin" />
-      ) : (
-        <>
-          <MessageSquare className="mr-2 h-4 w-4" />
-          Enviar e Abrir no WhatsApp
-        </>
-      )}
-    </Button>
+    <div className="glowing-wrapper-borders-masker">
+      <div className="glowing-wrapper-borders"></div>
+      <Button type="submit" disabled={pending} className="w-full relative z-20">
+        {pending ? (
+          <Loader2 className="animate-spin" />
+        ) : (
+          <>
+            <MessageSquare className="mr-2 h-4 w-4" />
+            Enviar e Abrir no WhatsApp
+          </>
+        )}
+      </Button>
+    </div>
   );
 }
 
