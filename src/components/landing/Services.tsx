@@ -30,7 +30,7 @@ export default function Services() {
     <section id="services" className="py-20 md:py-28 bg-card">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold font-headline">Soluções que impulsionam</h2>
+          <h2 className="text-4xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-500">Soluções que impulsionam</h2>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
             Do conceito à realidade, oferecemos o que há de mais moderno em desenvolvimento web.
           </p>
