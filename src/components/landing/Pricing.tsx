@@ -50,7 +50,7 @@ export default function Pricing() {
     <section id="pricing" className="py-20 md:py-28 bg-card">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold font-headline">Planos flexíveis para cada necessidade</h2>
+          <h2 className="text-4xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-500">Planos flexíveis para cada necessidade</h2>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
             Invista em uma solução que cresce com o seu negócio. Sem surpresas, sem letras miúdas.
           </p>
