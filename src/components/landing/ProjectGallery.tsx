@@ -57,6 +57,12 @@ const projectsData: Project[] = placeholderImages
       tags = ['SaaS', 'Poker', 'Analytics'];
       tech = ['React', 'Chart.js', 'Node.js'];
       demoUrl = '#';
+    } else if (img.id === 'project-5') {
+      title = 'Site C&D Pisos e Distribuição';
+      description = 'Um site institucional para uma distribuidora de pisos, com catálogo de produtos, informações da empresa e formulário de contato para orçamentos.';
+      tags = ['Site Institucional', 'Catálogo', 'Wordpress'];
+      tech = ['Wordpress', 'Elementor', 'PHP'];
+      demoUrl = '#';
     }
     
     return {
