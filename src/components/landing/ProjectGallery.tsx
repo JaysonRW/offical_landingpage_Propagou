@@ -57,7 +57,7 @@ const projectsData: Project[] = placeholderImages
       description = 'Uma plataforma para análise e estudo de mãos de poker, com estatísticas detalhadas e simulação de cenários para jogadores profissionais.';
       tags = ['SaaS', 'Poker', 'Analytics'];
       tech = ['React', 'Chart.js', 'Node.js'];
-      demoUrl = '#';
+      demoUrl = 'https://pokerhandpro.vercel.app/';
     } else if (img.id === 'project-5') {
       title = 'Site C&D Pisos e Distribuição';
       description = 'Um site institucional para uma distribuidora de pisos, com catálogo de produtos, informações da empresa e formulário de contato para orçamentos.';
