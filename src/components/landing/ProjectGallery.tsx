@@ -31,11 +31,22 @@ type Project = {
 const projectsData: Project[] = placeholderImages
   .filter((img) => img.id.startsWith('project-'))
   .map((img, i) => {
-    let title = i % 2 === 0 ? `GestãoPro - ERP` : `Connecta CRM`;
-    let description = `Um sistema de ${i % 2 === 0 ? 'ERP completo para clínicas' : 'CRM para equipes de vendas'}, otimizando ${i % 2 === 0 ? 'agendamentos e prontuários' : 'leads e funis de venda'} com uma interface intuitiva e automações inteligentes.`;
+    let title = 'GestãoPro - ERP';
+    let description = 'Um sistema de ERP completo para clínicas, otimizando agendamentos e prontuários com uma interface intuitiva e automações inteligentes.';
     let demoUrl = '#';
+    let tags = ['SaaS', 'Dashboard', 'Automação'];
+    let tech = ['Next.js', 'Tailwind CSS', 'Firebase', 'Stripe'];
 
-    if (img.id === 'project-3') {
+    if (img.id === 'project-1') {
+      title = 'Landing Page Jadi Manicure';
+      description = 'Uma landing page elegante e de alta conversão para uma profissional de manicure, focada em agendamento online e apresentação de portfólio.';
+      demoUrl = 'https://jadicristina.vercel.app/';
+      tags = ['Landing Page', 'Design', 'Agendamento'];
+      tech = ['Next.js', 'Tailwind CSS', 'Vercel'];
+    } else if (img.id === 'project-2') {
+      title = 'Connecta CRM';
+      description = 'Um sistema de CRM para equipes de vendas, otimizando leads e funis de venda com uma interface intuitiva e automações inteligentes.';
+    } else if (img.id === 'project-3') {
       title = 'Portal do Condomínio';
       description = 'Um portal exclusivo para moradores do Condomínio Collina Belvedere, com acesso a comunicados, agendamento de áreas comuns e documentos importantes.';
       demoUrl = 'https://projeto-condominio-collina.vercel.app/#home';
@@ -45,10 +56,10 @@ const projectsData: Project[] = placeholderImages
       id: img.id,
       title: title,
       description: description,
-      tags: ['SaaS', 'Dashboard', 'Automação'],
+      tags: tags,
       imageUrl: img.imageUrl,
       imageHint: img.imageHint,
-      tech: ['Next.js', 'Tailwind CSS', 'Firebase', 'Stripe'],
+      tech: tech,
       demoUrl: demoUrl,
     }
   });
