@@ -13,7 +13,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { handleContactForm, type FormState } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2 } from 'lucide-react';
+import { Loader2, MessageSquare } from 'lucide-react';
 
 const contactSchema = z.object({
   name: z.string().min(1, 'Nome é obrigatório'),
@@ -26,7 +26,14 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending} className="w-full">
-      {pending ? <Loader2 className="animate-spin" /> : 'Enviar e Abrir no WhatsApp'}
+      {pending ? (
+        <Loader2 className="animate-spin" />
+      ) : (
+        <>
+          <MessageSquare className="mr-2 h-4 w-4" />
+          Enviar e Abrir no WhatsApp
+        </>
+      )}
     </Button>
   );
 }
