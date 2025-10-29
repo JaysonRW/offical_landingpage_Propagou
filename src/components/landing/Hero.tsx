@@ -52,7 +52,7 @@ export default function Hero() {
           <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-bottom-12 duration-700 delay-200 aspect-video">
              <iframe
                 className="absolute top-0 left-0 w-full h-full rounded-xl shadow-2xl shadow-primary/10"
-                src="https://www.youtube.com/embed/6GGEJacURHk?autoplay=1&mute=1&loop=1&playlist=6GGEJacURHk&controls=0&showinfo=0&autohide=1"
+                src="https://www.youtube.com/embed/tliw8N01pgg?autoplay=1&mute=1&loop=1&playlist=tliw8N01pgg&controls=0&showinfo=0&autohide=1"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
