@@ -48,9 +48,8 @@ const plans = [
 export default function Pricing() {
   return (
     <section id="pricing" className="py-20 md:py-28 relative overflow-hidden bg-background">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,hsl(var(--foreground)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--foreground)/0.05)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_400px_at_50%_100px,hsl(var(--primary)/0.15),transparent)]"></div>
+      <div className="absolute inset-0 z-0 code-rain-background">
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
       </div>
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
