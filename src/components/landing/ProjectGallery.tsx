@@ -63,7 +63,7 @@ const projectsData: Project[] = placeholderImages
       description = 'Um site institucional para uma distribuidora de pisos, com catálogo de produtos, informações da empresa e formulário de contato para orçamentos.';
       tags = ['Site Institucional', 'Catálogo', 'Wordpress'];
       tech = ['Wordpress', 'Elementor', 'PHP'];
-      demoUrl = '#';
+      demoUrl = 'https://cdpisos.com.br/';
     } else if (img.id === 'project-6') {
       title = 'GestãoPro - ERP Financeiro';
       description = 'Um módulo financeiro de um sistema de ERP completo, otimizando o controle de fluxo de caixa, faturamento e relatórios com uma interface intuitiva.';
