@@ -16,6 +16,14 @@ export default function SocialProof() {
   return (
     <section className="py-20 md:py-28 bg-card">
       <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold font-headline">
+            +26 fundadores confiaram em nós este ano
+          </h2>
+          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+            Nós criamos identidades, sites e histórias para que você possa testar e crescer hoje.
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-border/50">
           {stats.map((stat, index) => (
             <div key={index} className="py-6 md:py-0">
@@ -32,7 +40,7 @@ export default function SocialProof() {
           <div className="scroller" data-animated="true">
             <div className="scroller__inner flex w-max gap-12 animate-scroll">
               {[...clientLogos, ...clientLogos].map((logo, index) => (
-                <div key={`${logo.id}-${index}`} className="relative h-16 w-40 flex-shrink-0" title={logo.description}>
+                <div key={`${logo.id}-${index}`} className="relative h-20 w-40 flex-shrink-0" title={logo.description}>
                    <Image
                     src={logo.imageUrl}
                     alt={logo.description}
