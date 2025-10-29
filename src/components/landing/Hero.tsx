@@ -51,9 +51,14 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
-              <Button asChild size="lg" className="shimmer-button animate-float">
-                <Link href="#contact">Fale com Especialista</Link>
-              </Button>
+              <div className="glowing-wrapper-borders-masker">
+                <div className="glowing-wrapper-borders"></div>
+                <Button asChild size="lg" className="relative z-20 transform transition-transform hover:scale-105">
+                  <Link href="#contact">
+                    Fale com Especialista
+                  </Link>
+                </Button>
+              </div>
 
               <div className="flex items-center gap-4 group">
                 <svg width="60" height="25" viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden sm:block text-primary/70 group-hover:text-primary transition-colors -mr-2 rotate-y-180">
