@@ -14,7 +14,12 @@ const clientLogos = placeholderImages.filter(img => img.id.startsWith('client-')
 
 export default function SocialProof() {
   return (
-    <section className="py-20 md:py-28 bg-card">
+    <section 
+      className="py-20 md:py-28"
+      style={{
+        background: 'linear-gradient(180deg, hsl(var(--background)), hsl(var(--card)), hsl(var(--background)))'
+      }}
+    >
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-headline">
@@ -38,9 +43,9 @@ export default function SocialProof() {
         <div className="mt-16">
           <p className="text-center text-lg text-muted-foreground mb-8">Confiado por empresas inovadoras</p>
           <div className="scroller" data-animated="true">
-            <div className="scroller__inner flex w-max gap-12 animate-scroll">
+            <div className="scroller__inner flex w-max gap-16 animate-scroll items-center">
               {[...clientLogos, ...clientLogos].map((logo, index) => (
-                <div key={`${logo.id}-${index}`} className="relative h-20 w-40 flex-shrink-0" title={logo.description}>
+                <div key={`${logo.id}-${index}`} className="relative h-24 w-48 flex-shrink-0" title={logo.description}>
                    <Image
                     src={logo.imageUrl}
                     alt={logo.description}
@@ -48,7 +53,7 @@ export default function SocialProof() {
                     style={{ objectFit: 'contain' }}
                     className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
                     data-ai-hint={logo.imageHint}
-                    sizes="160px"
+                    sizes="192px"
                   />
                 </div>
               ))}
