@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const plans = [
   {
@@ -47,9 +48,16 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 md:py-28 relative overflow-hidden bg-background">
-      <div className="absolute inset-0 z-0 code-rain-background">
-        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+    <section id="pricing" className="py-20 md:py-28 relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://i.ibb.co/Tqdz3DT/Image-fx-2.jpg"
+          alt="Abstract technology background"
+          fill
+          style={{ objectFit: 'cover' }}
+          className="blur-md"
+        />
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
       </div>
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
