@@ -50,7 +50,7 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
-              <Button asChild size="lg" className="glowing-wrapper-borders-masker">
+               <Button asChild size="lg" className="glowing-wrapper-borders-masker">
                 <Link href="#contact" className="relative z-20">
                   <div className="glowing-wrapper-borders"></div>
                   Quero meu projeto
@@ -65,7 +65,7 @@ export default function Hero() {
                   {founderImage && (
                   <Image
                       src={founderImage.imageUrl}
-                      alt="Jayson Walter, Fundador"
+                      alt={founderImage.description}
                       width={60}
                       height={60}
                       className="rounded-full border-2 border-primary/50 group-hover:border-primary transition-all transform group-hover:scale-110"
