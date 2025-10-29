@@ -63,6 +63,12 @@ const projectsData: Project[] = placeholderImages
       tags = ['Site Institucional', 'Catálogo', 'Wordpress'];
       tech = ['Wordpress', 'Elementor', 'PHP'];
       demoUrl = '#';
+    } else if (img.id === 'project-6') {
+      title = 'GestãoPro - ERP Financeiro';
+      description = 'Um módulo financeiro de um sistema de ERP completo, otimizando o controle de fluxo de caixa, faturamento e relatórios com uma interface intuitiva.';
+      tags = ['SaaS', 'ERP', 'Financeiro'];
+      tech = ['Vue.js', 'Node.js', 'PostgreSQL'];
+      demoUrl = '#';
     }
     
     return {
