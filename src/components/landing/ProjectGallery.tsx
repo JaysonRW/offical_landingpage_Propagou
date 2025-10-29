@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -68,7 +69,7 @@ const projectsData: Project[] = placeholderImages
       description = 'Um módulo financeiro de um sistema de ERP completo, otimizando o controle de fluxo de caixa, faturamento e relatórios com uma interface intuitiva.';
       tags = ['SaaS', 'ERP', 'Financeiro'];
       tech = ['Vue.js', 'Node.js', 'PostgreSQL'];
-      demoUrl = '#';
+      demoUrl = 'https://intelli-flow-hub-financeiro.vercel.app/';
     }
     
     return {
