@@ -47,6 +47,18 @@
     --input: 215 28% 25%;
     --ring: 239 84% 72%;
   }
+
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+  
+  @property --glowColor {
+    syntax: '<color>';
+    initial-value: hsl(var(--primary));
+    inherits: false;
+  }
 }
 
 @layer base {
@@ -60,18 +72,6 @@
 }
 
 @layer utilities {
-  @property --angle {
-    syntax: '<angle>';
-    initial-value: 0deg;
-    inherits: false;
-  }
-  
-  @property --glowColor {
-    syntax: '<color>';
-    initial-value: hsl(var(--primary));
-    inherits: false;
-  }
-  
   .glowing-btn {
     @apply relative p-px border-none bg-transparent rounded-full;
   }
