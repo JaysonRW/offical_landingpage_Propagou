@@ -29,15 +29,15 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
       
       <div className="container mx-auto px-4 md:px-6 z-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 text-center lg:text-left animate-in fade-in slide-in-from-bottom-12 duration-700">
+        <div className="grid grid-cols-1 items-center">
+          <div className="space-y-6 text-center animate-in fade-in slide-in-from-bottom-12 duration-700">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300">
               SaaS personalizado para o seu negócio crescer de verdade
             </h1>
-            <p className="max-w-2xl mx-auto lg:mx-0 text-lg md:text-xl text-gray-300">
+            <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
               Landing pages, portais e sistemas sob medida para PMEs. Tecnologia premium, sem complicação.
             </p>
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex justify-center">
               <div className="glowing-wrapper-borders-masker">
                 <div className="glowing-wrapper-borders"></div>
                 <Button size="lg" asChild className="relative z-20 w-full transform transition-transform hover:scale-105 animate-pulse text-white">
@@ -48,16 +48,6 @@ export default function Hero() {
                 </Button>
               </div>
             </div>
-          </div>
-          <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-bottom-12 duration-700 delay-200 aspect-video">
-             <iframe
-                className="absolute top-0 left-0 w-full h-full rounded-xl shadow-2xl shadow-primary/10"
-                src="https://www.youtube.com/embed/tliw8N01pgg?autoplay=1&mute=1&loop=1&playlist=tliw8N01pgg&controls=0&showinfo=0&autohide=1"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
           </div>
         </div>
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
