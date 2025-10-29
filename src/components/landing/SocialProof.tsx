@@ -23,7 +23,7 @@ export default function SocialProof() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-500">
-            +26 fundadores confiaram em nós este ano
+            +26 negócios confiaram em nós este ano
           </h2>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
             Nós criamos identidades, sites e histórias para que você possa testar e crescer hoje.
