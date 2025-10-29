@@ -11,7 +11,7 @@ const contactSchema = z.object({
   name: z.string().min(2, 'O nome é muito curto'),
   whatsapp: z.string().min(8, 'Número de WhatsApp inválido'),
   email: z.string().email('Endereço de e-mail inválido'),
-  projectType: z.enum(['saas', 'site', 'landing-page', 'portal-personalizado'], {
+  projectType: z.enum(['saas', 'site', 'landing-page', 'portal-personalizado', 'outros'], {
     errorMap: () => ({ message: 'Selecione um tipo de projeto válido.' }),
   }),
   message: z.string().min(10, 'A mensagem é muito curta').max(500, 'A mensagem é muito longa'),

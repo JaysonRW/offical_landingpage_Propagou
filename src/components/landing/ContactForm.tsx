@@ -143,6 +143,7 @@ export function ContactForm() {
                   <SelectItem value="site">Site Institucional</SelectItem>
                   <SelectItem value="landing-page">Landing Page</SelectItem>
                   <SelectItem value="portal-personalizado">Portal Personalizado</SelectItem>
+                  <SelectItem value="outros">Outros</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage>{state.fields?.projectType}</FormMessage>
