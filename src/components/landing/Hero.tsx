@@ -1,11 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Zap, CalendarDays, Users } from 'lucide-react';
+import { Zap, CalendarDays, Users, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import VantaBackground from './VantaBackground';
 import { placeholderImages } from '@/lib/placeholder-images';
-import { ArrowRight } from 'lucide-react';
 
 const benefits = [
   {
@@ -50,34 +49,34 @@ export default function Hero() {
               premium, sem complicação.
             </p>
 
-            <div className="flex justify-center items-center gap-4">
-              <Link
-                href="#contact"
-                className="flex items-center gap-4 group"
-              >
-                {founderImage && (
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
+              <Button asChild size="lg" className="glowing-wrapper-borders-masker">
+                <Link href="#contact" className="relative z-20">
+                  <div className="glowing-wrapper-borders"></div>
+                  Quero meu projeto
+                </Link>
+              </Button>
+
+              <div className="flex items-center gap-4 group">
+                  <svg width="60" height="25" viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden sm:block text-primary/70 group-hover:text-primary transition-colors -mr-2">
+                      <path d="M1 23.5C14.1667 23.1667 39.1 -6.19999 58.5 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M54 1L58.5 4L55 7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  {founderImage && (
                   <Image
-                    src={founderImage.imageUrl}
-                    alt="Jayson Walter, Fundador"
-                    width={80}
-                    height={80}
-                    className="rounded-full border-4 border-primary/50 group-hover:border-primary transition-all transform group-hover:scale-110"
-                    data-ai-hint={founderImage.imageHint}
+                      src={founderImage.imageUrl}
+                      alt="Jayson Walter, Fundador"
+                      width={60}
+                      height={60}
+                      className="rounded-full border-2 border-primary/50 group-hover:border-primary transition-all transform group-hover:scale-110"
+                      data-ai-hint={founderImage.imageHint}
                   />
-                )}
-                <div className="relative text-left">
-                    <p className="font-semibold text-lg text-white">Fale com o especialista, Jayson Walter</p>
-                    <p className="text-sm text-gray-400">Sem compromisso</p>
-                    <svg
-                        className="absolute -left-12 top-1/2 -translate-y-1/2 h-8 w-8 text-primary opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                </div>
-              </Link>
+                  )}
+                  <div className="text-left">
+                      <p className="font-semibold text-base text-white">Fale com o especialista, Jayson Walter</p>
+                      <p className="text-sm text-gray-400">Sem compromisso</p>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
