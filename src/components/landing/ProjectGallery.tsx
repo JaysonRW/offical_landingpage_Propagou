@@ -40,7 +40,7 @@ const projectsData: Project[] = placeholderImages
     if (img.id === 'project-1') {
       title = 'Landing Page Jadi Manicure';
       description = 'Uma landing page elegante e de alta conversão para uma profissional de manicure, focada em agendamento online e apresentação de portfólio.';
-      demoUrl = 'https://jadicristina.vercel.app/';
+      demoUrl = 'https://jadicristinamanicure.abacusai.app/';
       tags = ['Landing Page', 'Design', 'Agendamento'];
       tech = ['Next.js', 'Tailwind CSS', 'Vercel'];
     } else if (img.id === 'project-2') {
