@@ -55,15 +55,16 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-           <div className="glowing-wrapper-borders-masker">
-              <div className="glowing-wrapper-borders"></div>
+           <div className="glowing-btn inline-block rounded-md">
+             <div className="btn-inner !rounded-md">
               <Button asChild>
-                <Link href="#contact" className='relative z-20'>
+                <Link href="#contact">
                   <MessageSquare className="mr-2 h-4 w-4" />
                   Fale com um especialista
                 </Link>
               </Button>
             </div>
+          </div>
         </div>
 
         <div className="md:hidden">

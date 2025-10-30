@@ -73,13 +73,13 @@
 
 @layer utilities {
   .glowing-btn {
-    @apply relative p-px border-none bg-transparent rounded-full;
+    @apply relative p-px border-none bg-transparent;
   }
   
   .glowing-btn::before,
   .glowing-btn::after {
     content: '';
-    @apply absolute top-0 left-0 w-full h-full rounded-[9999px] bg-no-repeat;
+    @apply absolute top-0 left-0 w-full h-full rounded-md bg-no-repeat;
     background-size: 100% 100%;
     background-image: conic-gradient(
       from var(--angle) at 50% 50%,
@@ -96,8 +96,8 @@
     @apply filter blur-2xl;
   }
   
-  .glowing-btn .btn-inner {
-    @apply relative z-10 flex items-center justify-center w-full h-full rounded-[9999px] text-primary transition-colors duration-300;
+  .btn-inner {
+    @apply relative z-10 flex items-center justify-center w-full h-full rounded-md text-primary transition-colors duration-300;
     background: hsl(var(--background));
   }
 

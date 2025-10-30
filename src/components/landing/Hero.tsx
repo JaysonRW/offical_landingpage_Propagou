@@ -51,13 +51,14 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
-              <div className="glowing-wrapper-borders-masker">
-                <div className="glowing-wrapper-borders"></div>
-                <Button asChild size="lg" className="relative z-20">
-                  <Link href="#contact">
-                    Fale com Especialista
-                  </Link>
-                </Button>
+              <div className="glowing-btn inline-block rounded-md">
+                <div className="btn-inner !rounded-md">
+                  <Button asChild size="lg">
+                    <Link href="#contact">
+                      Fale com Especialista
+                    </Link>
+                  </Button>
+                </div>
               </div>
 
               <div className="flex items-center gap-4 group">

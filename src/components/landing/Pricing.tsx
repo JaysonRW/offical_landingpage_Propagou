@@ -111,14 +111,22 @@ export default function Pricing() {
                   </ul>
                 </CardContent>
                 <CardFooter className="p-6">
-                  <Button className={cn(
+                  {plan.isPopular ? (
+                    <div className="glowing-btn w-full inline-block rounded-md">
+                      <div className="btn-inner !rounded-md">
+                        <Button className="w-full font-bold text-lg py-6">
+                          Escolher Plano
+                        </Button>
+                      </div>
+                    </div>
+                  ) : (
+                    <Button className={cn(
                       "w-full font-bold text-lg py-6 transition-all duration-300",
-                      plan.isPopular 
-                        ? "bg-blue-500 text-white hover:bg-blue-600 shadow-[0_0_15px_rgba(0,191,255,0.5)] hover:shadow-[0_0_25px_rgba(0,191,255,0.8)]"
-                        : "bg-gray-700 text-white hover:bg-gray-600"
+                      "bg-gray-700 text-white hover:bg-gray-600"
                     )}>
-                    Escolher Plano
-                  </Button>
+                      Escolher Plano
+                    </Button>
+                  )}
                 </CardFooter>
               </Card>
             </div>
