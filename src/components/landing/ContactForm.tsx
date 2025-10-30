@@ -76,9 +76,8 @@ export function ContactForm() {
     }
   }, [state, toast, form]);
   
-  // Wrapper action to integrate react-hook-form and server action
   const action: (payload: FormData) => void = (payload) => {
-    form.clearErrors(); // Clear previous errors
+    form.clearErrors();
     const result = contactSchema.safeParse(Object.fromEntries(payload));
     if (!result.success) {
       const fieldErrors = result.error.flatten().fieldErrors;
@@ -107,7 +106,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>
                 Nome
-                <span className="ml-1 text-red-500/80 text-xs">(obrigatório)</span>
+                <span className="ml-1 text-muted-foreground text-xs">(obrigatório)</span>
               </FormLabel>
               <FormControl>
                 <Input placeholder="Seu nome completo" {...field} />
@@ -124,7 +123,7 @@ export function ContactForm() {
               <FormItem>
                 <FormLabel>
                   WhatsApp
-                  <span className="ml-1 text-red-500/80 text-xs">(obrigatório)</span>
+                  <span className="ml-1 text-muted-foreground text-xs">(obrigatório)</span>
                 </FormLabel>
                 <FormControl>
                   <Input type="tel" placeholder="(XX) XXXXX-XXXX" {...field} />
@@ -138,10 +137,7 @@ export function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
-                  E-mail
-                  <span className="ml-1 text-red-500/80 text-xs">(obrigatório)</span>
-                </FormLabel>
+                <FormLabel>E-mail</FormLabel>
                 <FormControl>
                   <Input type="email" placeholder="seu.email@exemplo.com" {...field} />
                 </FormControl>
@@ -157,7 +153,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>
                 Tipo de Projeto
-                <span className="ml-1 text-red-500/80 text-xs">(obrigatório)</span>
+                <span className="ml-1 text-muted-foreground text-xs">(obrigatório)</span>
               </FormLabel>
                <Select onValueChange={field.onChange} defaultValue={field.value} name={field.name}>
                 <FormControl>
@@ -182,10 +178,7 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
-                Mensagem
-                <span className="ml-1 text-red-500/80 text-xs">(obrigatório)</span>
-              </FormLabel>
+              <FormLabel>Mensagem</FormLabel>
               <FormControl>
                 <Textarea placeholder="Conte-nos sobre seu projeto..." {...field} rows={5} />
               </FormControl>

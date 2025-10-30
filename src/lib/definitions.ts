@@ -4,11 +4,11 @@ import { type LeadQualityEstimationOutput } from '@/ai/flows/lead-quality-estima
 export const contactSchema = z.object({
   name: z.string().min(1, 'Nome é obrigatório.'),
   whatsapp: z.string().min(1, 'WhatsApp é obrigatório.'),
-  email: z.string().email('Endereço de e-mail inválido.'),
+  email: z.string().email('Endereço de e-mail inválido.').optional().or(z.literal('')),
   projectType: z.enum(['saas', 'site', 'landing-page', 'portal-personalizado', 'outros'], {
     errorMap: () => ({ message: 'Selecione um tipo de projeto válido.' }),
   }),
-  message: z.string().min(10, 'A mensagem precisa ter pelo menos 10 caracteres.').max(500, 'A mensagem é muito longa.'),
+  message: z.string().optional(),
 });
 
 export type FormState = {
