@@ -45,20 +45,20 @@ export default function Testimonials() {
       <div className="flex">
         {testimonials.map((testimonial, index) => (
           <div key={index} className="flex-[0_0_100%] min-w-0 pl-4">
-            <Card className="bg-card border-border/50 shadow-lg speech-bubble relative">
+            <Card className="bg-white shadow-lg speech-bubble relative border-gray-200">
               <CardContent className="p-6">
-                <Quote className="w-8 h-8 text-primary/50 mb-2 transform -scale-x-100" />
+                <Quote className="w-8 h-8 text-indigo-200 mb-2 transform -scale-x-100" />
                 <div className="flex items-center mb-2">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-muted-foreground mb-4 italic">
+                <p className="text-slate-700 mb-4 italic">
                   "{testimonial.quote}"
                 </p>
                 <div className="text-right">
-                  <p className="font-bold text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                  <p className="font-bold text-slate-900">{testimonial.name}</p>
+                  <p className="text-sm text-slate-500">{testimonial.company}</p>
                 </div>
               </CardContent>
             </Card>
