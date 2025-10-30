@@ -105,7 +105,10 @@ export function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Nome</FormLabel>
+              <FormLabel>
+                Nome
+                <span className="ml-1 text-red-500/80 text-xs">(obrigatório)</span>
+              </FormLabel>
               <FormControl>
                 <Input placeholder="Seu nome completo" {...field} />
               </FormControl>
@@ -119,7 +122,10 @@ export function ContactForm() {
             name="whatsapp"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>WhatsApp</FormLabel>
+                <FormLabel>
+                  WhatsApp
+                  <span className="ml-1 text-red-500/80 text-xs">(obrigatório)</span>
+                </FormLabel>
                 <FormControl>
                   <Input type="tel" placeholder="(XX) XXXXX-XXXX" {...field} />
                 </FormControl>
@@ -132,7 +138,10 @@ export function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>E-mail</FormLabel>
+                <FormLabel>
+                  E-mail
+                  <span className="ml-1 text-red-500/80 text-xs">(obrigatório)</span>
+                </FormLabel>
                 <FormControl>
                   <Input type="email" placeholder="seu.email@exemplo.com" {...field} />
                 </FormControl>
@@ -146,7 +155,10 @@ export function ContactForm() {
           name="projectType"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Tipo de Projeto</FormLabel>
+              <FormLabel>
+                Tipo de Projeto
+                <span className="ml-1 text-red-500/80 text-xs">(obrigatório)</span>
+              </FormLabel>
                <Select onValueChange={field.onChange} defaultValue={field.value} name={field.name}>
                 <FormControl>
                   <SelectTrigger>
@@ -170,7 +182,10 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Mensagem</FormLabel>
+              <FormLabel>
+                Mensagem
+                <span className="ml-1 text-red-500/80 text-xs">(obrigatório)</span>
+              </FormLabel>
               <FormControl>
                 <Textarea placeholder="Conte-nos sobre seu projeto..." {...field} rows={5} />
               </FormControl>
