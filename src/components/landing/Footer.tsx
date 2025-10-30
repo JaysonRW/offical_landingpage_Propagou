@@ -59,7 +59,15 @@ export default function Footer() {
                <div className="flex space-x-4">
                 {socialLinks.map(social => (
                   <Button key={social.name} variant="ghost" size="icon" asChild>
-                    <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.name} className="text-muted-foreground hover:bg-pink-500 hover:text-white">{social.icon}</a>
+                    <a 
+                      href={social.href} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      aria-label={social.name} 
+                      className={`text-muted-foreground hover:text-white ${social.name === 'LinkedIn' ? 'hover:bg-blue-600' : 'hover:bg-pink-500'}`}
+                    >
+                      {social.icon}
+                    </a>
                   </Button>
                 ))}
               </div>
