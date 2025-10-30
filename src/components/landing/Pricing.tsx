@@ -4,6 +4,9 @@ import { Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import ParallaxStars from "./ParallaxStars";
+import './ParallaxStars.css';
+import './PricingBackground.css';
 
 const plans = [
   {
@@ -17,6 +20,7 @@ const plans = [
       "Formulário de contato",
     ],
     isPopular: false,
+    isCustom: false,
   },
   {
     name: "Pro",
@@ -30,10 +34,11 @@ const plans = [
       "Integração com 1 sistema (ex: Pagamentos)",
     ],
     isPopular: true,
+    isCustom: false,
   },
   {
     name: "Enterprise",
-    price: "R$ 14.900+",
+    price: "Preço sob Consulta",
     description: "Para projetos de larga escala com necessidades customizadas.",
     features: [
       "Tudo do plano Pro",
@@ -43,12 +48,14 @@ const plans = [
       "Suporte e manutenção contínuos",
     ],
     isPopular: false,
+    isCustom: true,
   },
 ];
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 md:py-28 relative overflow-hidden bg-black">
+    <section id="pricing" className="py-20 md:py-28 relative overflow-hidden animated-background">
+      <ParallaxStars />
       <div 
         className="absolute inset-0 z-0 opacity-20"
         style={{
@@ -81,12 +88,16 @@ export default function Pricing() {
                 {plan.isPopular && (
                   <Badge className="absolute -top-3 right-5 bg-blue-500 text-white border-none">Mais Popular</Badge>
                 )}
+                {plan.isCustom && (
+                  <Badge className="absolute -top-3 right-5 bg-purple-500 text-white border-none">Sob Medida</Badge>
+                )}
                 <CardHeader className="pt-8">
                   <CardTitle className="text-2xl font-headline text-white">{plan.name}</CardTitle>
                   <div className="pt-4">
                     <span className="text-4xl font-bold text-blue-400">{plan.price}</span>
                     <span className="text-sm text-gray-400">{plan.name === "Start" || plan.name === "Pro" ? " / projeto" : ""}</span>
                   </div>
+                  <p className="text-xs text-gray-500 mt-1">7 dias de garantia</p>
                   <CardDescription className="pt-2 !text-gray-400">{plan.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow pt-4">

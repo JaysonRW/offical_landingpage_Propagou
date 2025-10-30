@@ -1,0 +1,57 @@
+/* src/components/landing/ParallaxStars.css */
+
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+#stars, #stars2, #stars3 {
+  position: absolute;
+  background: transparent;
+  animation-name: animStar;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#stars {
+  width: 1px;
+  height: 1px;
+  animation-duration: 50s;
+}
+
+#stars2 {
+  width: 2px;
+  height: 2px;
+  animation-duration: 100s;
+}
+
+#stars3 {
+  width: 3px;
+  height: 3px;
+  animation-duration: 150s;
+}
+
+/* The :after pseudo-element duplicates the stars to create a seamless loop */
+#stars:after, #stars2:after, #stars3:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: inherit;
+  height: inherit;
+  background: transparent;
+  box-shadow: inherit;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}

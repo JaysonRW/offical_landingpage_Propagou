@@ -18,6 +18,7 @@ import {
 import { ArrowRight } from 'lucide-react';
 import { placeholderImages } from '@/lib/placeholder-images';
 import ParallaxStars from './ParallaxStars';
+import { cn } from '@/lib/utils';
 
 type Project = {
   id: string;
@@ -86,6 +87,26 @@ const projectsData: Project[] = placeholderImages
     }
   });
 
+  const getTagClass = (tag: string) => {
+    const tagColorMap: { [key: string]: string } = {
+      'SaaS': 'bg-blue-900 text-blue-300 border-blue-700',
+      'Dashboard': 'bg-indigo-900 text-indigo-300 border-indigo-700',
+      'Automação': 'bg-purple-900 text-purple-300 border-purple-700',
+      'Landing Page': 'bg-green-900 text-green-300 border-green-700',
+      'Design': 'bg-pink-900 text-pink-300 border-pink-700',
+      'Agendamento': 'bg-cyan-900 text-cyan-300 border-cyan-700',
+      'Barbearia': 'bg-yellow-900 text-yellow-300 border-yellow-700',
+      'Poker': 'bg-red-900 text-red-300 border-red-700',
+      'Analytics': 'bg-teal-900 text-teal-300 border-teal-700',
+      'Site Institucional': 'bg-gray-700 text-gray-300 border-gray-500',
+      'Catálogo': 'bg-orange-900 text-orange-300 border-orange-700',
+      'Wordpress': 'bg-sky-800 text-sky-200 border-sky-600',
+      'ERP': 'bg-rose-900 text-rose-300 border-rose-700',
+      'Financeiro': 'bg-emerald-900 text-emerald-300 border-emerald-700',
+    };
+    return tagColorMap[tag] || 'bg-secondary text-secondary-foreground border-border';
+  };
+
 export default function ProjectGallery() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -127,9 +148,9 @@ export default function ProjectGallery() {
                   <CardTitle className="mb-2">{project.title}</CardTitle>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">
-                        {tag}
-                      </Badge>
+                       <Badge key={tag} className={cn('border', getTagClass(tag))}>
+                       {tag}
+                     </Badge>
                     ))}
                   </div>
                 </CardContent>
