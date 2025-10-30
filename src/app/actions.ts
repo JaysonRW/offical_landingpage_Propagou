@@ -6,25 +6,9 @@ import {
   estimateLeadQuality,
   type LeadQualityEstimationOutput,
 } from '@/ai/flows/lead-quality-estimation';
+import { contactSchema } from '@/lib/definitions';
+import type { FormState } from '@/lib/definitions';
 
-const contactSchema = z.object({
-  name: z.string().min(2, 'O nome é muito curto'),
-  whatsapp: z.string().min(8, 'Número de WhatsApp inválido'),
-  email: z.string().email('Endereço de e-mail inválido'),
-  projectType: z.enum(['saas', 'site', 'landing-page', 'portal-personalizado', 'outros'], {
-    errorMap: () => ({ message: 'Selecione um tipo de projeto válido.' }),
-  }),
-  message: z.string().min(10, 'A mensagem é muito curta').max(500, 'A mensagem é muito longa'),
-});
-
-export type FormState = {
-  message: string;
-  fields?: Record<string, string>;
-  isSuccess: boolean;
-  isError: boolean;
-  aiResponse?: LeadQualityEstimationOutput;
-  whatsappUrl?: string;
-};
 
 export async function handleContactForm(
   prevState: FormState,

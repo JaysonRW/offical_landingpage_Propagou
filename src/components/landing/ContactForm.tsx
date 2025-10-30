@@ -18,17 +18,10 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { handleContactForm, type FormState } from '@/app/actions';
+import { handleContactForm } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, MessageSquare } from 'lucide-react';
-
-const contactSchema = z.object({
-  name: z.string().min(1, 'Nome é obrigatório'),
-  whatsapp: z.string().min(1, 'WhatsApp é obrigatório'),
-  email: z.string().email('E-mail inválido'),
-  projectType: z.string().min(1, 'Tipo de projeto é obrigatório'),
-  message: z.string().min(1, 'Mensagem é obrigatória'),
-});
+import { contactSchema, type FormState } from '@/lib/definitions';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -82,10 +75,31 @@ export function ContactForm() {
       });
     }
   }, [state, toast, form]);
+  
+  // Wrapper action to integrate react-hook-form and server action
+  const action: (payload: FormData) => void = (payload) => {
+    form.clearErrors(); // Clear previous errors
+    const result = contactSchema.safeParse(Object.fromEntries(payload));
+    if (!result.success) {
+      const fieldErrors = result.error.flatten().fieldErrors;
+      Object.keys(fieldErrors).forEach((fieldName) => {
+        const key = fieldName as keyof typeof fieldErrors;
+        form.setError(key, { type: 'manual', message: fieldErrors[key]?.[0] });
+      });
+      toast({
+        variant: 'destructive',
+        title: 'Erro de Validação',
+        description: 'Por favor, verifique os campos destacados.',
+      });
+      return; 
+    }
+    formAction(payload);
+  };
+
 
   return (
     <Form {...form}>
-      <form action={formAction} className="space-y-4">
+      <form action={action} className="space-y-4">
         <FormField
           control={form.control}
           name="name"
@@ -95,7 +109,7 @@ export function ContactForm() {
               <FormControl>
                 <Input placeholder="Seu nome completo" {...field} />
               </FormControl>
-              <FormMessage>{state.fields?.name}</FormMessage>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -109,7 +123,7 @@ export function ContactForm() {
                 <FormControl>
                   <Input type="tel" placeholder="(XX) XXXXX-XXXX" {...field} />
                 </FormControl>
-                <FormMessage>{state.fields?.whatsapp}</FormMessage>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -122,7 +136,7 @@ export function ContactForm() {
                 <FormControl>
                   <Input type="email" placeholder="seu.email@exemplo.com" {...field} />
                 </FormControl>
-                <FormMessage>{state.fields?.email}</FormMessage>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -133,7 +147,7 @@ export function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Tipo de Projeto</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+               <Select onValueChange={field.onChange} defaultValue={field.value} name={field.name}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Selecione o tipo de projeto" />
@@ -147,7 +161,7 @@ export function ContactForm() {
                   <SelectItem value="outros">Outros</SelectItem>
                 </SelectContent>
               </Select>
-              <FormMessage>{state.fields?.projectType}</FormMessage>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -160,7 +174,7 @@ export function ContactForm() {
               <FormControl>
                 <Textarea placeholder="Conte-nos sobre seu projeto..." {...field} rows={5} />
               </FormControl>
-              <FormMessage>{state.fields?.message}</FormMessage>
+              <FormMessage />
             </FormItem>
           )}
         />
