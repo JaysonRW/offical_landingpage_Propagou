@@ -1,5 +1,5 @@
 import { Card, CardTitle, CardDescription } from '@/components/ui/card';
-import { PanelsTopLeft, AppWindow, Bot, PlugZap, Rocket } from 'lucide-react';
+import { PanelsTopLeft, AppWindow, Bot, PlugZap } from 'lucide-react';
 import React from 'react';
 
 const services = [
@@ -28,11 +28,15 @@ const services = [
 export default function Services() {
   return (
     <section id="services" className="py-20 md:py-28 relative overflow-hidden">
-      <div className="absolute inset-0 bg-background z-0">
-        <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,hsl(var(--foreground)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--foreground)/0.05)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
-        <Rocket className="absolute -bottom-1/4 left-1/2 -translate-x-1/2 h-[500px] w-[500px] text-primary/10 -rotate-45 blur-2xl" />
+      <div className="absolute inset-0 z-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('https://i.ibb.co/3yCZ4NTx/banner-back-pre-os.jpg')",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f1729]/90 to-[#0f1729]" />
       </div>
-
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
