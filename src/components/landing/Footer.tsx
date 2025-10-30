@@ -64,7 +64,13 @@ export default function Footer() {
                       target="_blank" 
                       rel="noopener noreferrer" 
                       aria-label={social.name} 
-                      className={`text-muted-foreground hover:text-white ${social.name === 'LinkedIn' ? 'hover:bg-blue-600' : 'hover:bg-pink-500'}`}
+                      className={`text-muted-foreground hover:text-white ${
+                        social.name === 'LinkedIn' 
+                          ? 'hover:bg-blue-600' 
+                          : social.name === 'GitHub' 
+                          ? 'hover:bg-black' 
+                          : 'hover:bg-pink-500'
+                      }`}
                     >
                       {social.icon}
                     </a>
