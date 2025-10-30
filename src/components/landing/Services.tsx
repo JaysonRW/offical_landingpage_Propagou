@@ -1,5 +1,5 @@
 import { Card, CardTitle, CardDescription } from '@/components/ui/card';
-import { PanelsTopLeft, AppWindow, Bot, PlugZap } from 'lucide-react';
+import { PanelsTopLeft, AppWindow, Bot, PlugZap, Rocket } from 'lucide-react';
 import React from 'react';
 
 const services = [
@@ -30,7 +30,7 @@ export default function Services() {
     <section id="services" className="py-20 md:py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-background z-0">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,hsl(var(--foreground)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--foreground)/0.05)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_400px_at_50%_100px,hsl(var(--primary)/0.15),transparent)]"></div>
+        <Rocket className="absolute -bottom-1/4 left-1/2 -translate-x-1/2 h-[500px] w-[500px] text-primary/10 -rotate-45 blur-2xl" />
       </div>
 
 
