@@ -38,7 +38,7 @@ const projectsData: Project[] = placeholderImages
     let description = 'Um sistema de ERP completo para clínicas, otimizando agendamentos e prontuários com uma interface intuitiva e automações inteligentes.';
     let demoUrl = '#';
     let tags = ['SaaS', 'Dashboard', 'Automação'];
-    let tech = ['Next.js', 'Tailwind CSS', 'Firebase', 'Stripe'];
+    let tech = ['Next.js', 'Tailwind CSS', 'Firebase', 'Autenticação'];
 
     if (img.id === 'project-1') {
       title = 'Landing Page Jadi Manicure';
