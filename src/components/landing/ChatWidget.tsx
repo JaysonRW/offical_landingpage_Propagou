@@ -20,7 +20,7 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export default function FloatingWhatsapp() {
+export function ChatWidget() {
   return (
     <TooltipProvider>
       <Tooltip>

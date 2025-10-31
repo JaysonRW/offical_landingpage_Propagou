@@ -1,6 +1,6 @@
+
 import CtaSection from '@/components/landing/CtaSection';
 import Faq from '@/components/landing/Faq';
-import FloatingWhatsapp from '@/components/landing/FloatingWhatsapp';
 import Footer from '@/components/landing/Footer';
 import Header from '@/components/landing/Header';
 import Hero from '@/components/landing/Hero';
@@ -23,7 +23,6 @@ export default function Home() {
         <CtaSection />
       </main>
       <Footer />
-      <FloatingWhatsapp />
     </div>
   );
 }
