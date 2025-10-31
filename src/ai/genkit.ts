@@ -11,14 +11,21 @@ export const ai = genkit({
 // Define a Zod schema for the chat history
 export const HistorySchema = z.object({
   role: z.enum(['user', 'model']),
-  content: z.string(),
+  content: z.array(z.object({
+    text: z.string(),
+  })),
 });
 
-export const chatFlow = ai.flow(
+export const chatFlow = ai.defineFlow(
   {
     name: 'chatFlow',
     inputSchema: z.object({
-      history: z.array(HistorySchema),
+      history: z.array(z.object({
+        role: z.enum(['user', 'model']),
+        content: z.array(z.object({
+          text: z.string(),
+        })),
+      })),
     }),
     outputSchema: z.string(),
   },
@@ -35,11 +42,11 @@ export const chatFlow = ai.flow(
 
     const result = await ai.generate({
       prompt: [
-        { role: 'system', content: systemInstruction },
+        { role: 'system', content: [{ text: systemInstruction }] },
         ...history,
       ],
     });
 
-    return result.text();
+    return result.text;
   }
 );
