@@ -65,7 +65,8 @@ export function ContactForm() {
       });
       form.reset();
       if (state.whatsappUrl) {
-        window.open(state.whatsappUrl, '_blank');
+        // Redireciona na mesma aba para evitar bloqueio de pop-up
+        window.location.href = state.whatsappUrl;
       }
     } else if (state.isError) {
       toast({
