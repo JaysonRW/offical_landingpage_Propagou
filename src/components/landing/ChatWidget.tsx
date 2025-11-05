@@ -15,6 +15,7 @@ import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Send, MessageSquare, Loader2 } from 'lucide-react';
 import Image from 'next/image';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface Message {
   role: 'user' | 'model';
@@ -22,6 +23,7 @@ interface Message {
 }
 
 export function ChatWidget() {
+  const CHAT_ICON = 'https://i.ibb.co/rGQTVMqv/icone-chatbot-landing-Site.png';
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
@@ -38,7 +40,7 @@ export function ChatWidget() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/genkit/flows/chatFlow', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +56,7 @@ export function ChatWidget() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      // O Genkit retorna um JSON com a chave "output"
+      // O endpoint retorna um JSON com a chave "output"
       const result = await response.json();
       const modelResponse = result.output;
 
@@ -68,7 +70,7 @@ export function ChatWidget() {
       ]);
 
     } catch (error) {
-      console.error('Falha ao comunicar com a API do Genkit:', error);
+      console.error('Falha ao comunicar com a API de Chat:', error);
       setMessages((prevMessages) => [
         ...prevMessages,
         { role: 'model', content: 'Desculpe, não consegui obter uma resposta. Tente novamente.' },
@@ -81,16 +83,31 @@ export function ChatWidget() {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button
-          variant="outline"
-          className="fixed bottom-6 right-6 z-50 h-16 w-16 rounded-full shadow-lg"
-        >
-          <MessageSquare className="h-8 w-8" />
-        </Button>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                variant="outline"
+                className="fixed bottom-6 right-6 z-50 h-16 w-16 rounded-full shadow-lg transition-transform duration-200 hover:scale-110"
+              >
+                <Image
+                  src={CHAT_ICON}
+                  alt="PropagouDev"
+                  width={32}
+                  height={32}
+                  className="h-8 w-8 rounded-full animate-pulse"
+                />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              Vamos conversar!
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Assistente Virtual DevApi</DialogTitle>
+          <DialogTitle>PropagouDev</DialogTitle>
           <DialogDescription>
             Tire suas dúvidas sobre nossos serviços e soluções.
           </DialogDescription>
@@ -107,8 +124,8 @@ export function ChatWidget() {
               >
                 {m.role === 'model' && (
                   <Image
-                    src="/icon.png"
-                    alt="DevApi"
+                    src={CHAT_ICON}
+                    alt="PropagouDev"
                     width={40}
                     height={40}
                     className="h-8 w-8 rounded-full"
@@ -128,8 +145,8 @@ export function ChatWidget() {
             {isLoading && (
                <div className="flex items-center justify-start gap-3">
                   <Image
-                    src="/icon.png"
-                    alt="DevApi"
+                    src={CHAT_ICON}
+                    alt="PropagouDev"
                     width={40}
                     height={40}
                     className="h-8 w-8 rounded-full"
