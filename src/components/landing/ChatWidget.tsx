@@ -82,10 +82,10 @@ export function ChatWidget() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <DialogTrigger asChild>
               <Button
                 variant="outline"
                 className="fixed bottom-6 right-6 z-50 h-16 w-16 rounded-full shadow-lg transition-transform duration-200 hover:scale-110"
@@ -98,13 +98,13 @@ export function ChatWidget() {
                   className="h-8 w-8 rounded-full animate-pulse"
                 />
               </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              Vamos conversar!
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </DialogTrigger>
+            </DialogTrigger>
+          </TooltipTrigger>
+          <TooltipContent>
+            Vamos conversar!
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>PropagouDev</DialogTitle>
