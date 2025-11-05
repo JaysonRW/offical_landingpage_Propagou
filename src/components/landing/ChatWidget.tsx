@@ -87,16 +87,19 @@ export function ChatWidget() {
           <TooltipTrigger asChild>
             <DialogTrigger asChild>
               <Button
-                variant="outline"
-                className="fixed bottom-6 right-6 z-50 h-16 w-16 rounded-full shadow-lg transition-transform duration-200 hover:scale-110"
+                variant="ghost"
+                aria-label="Abrir chat PropagouDev"
+                className="fixed bottom-6 right-6 z-50 p-0 bg-transparent hover:bg-transparent shadow-none border-0 transition-transform duration-200 hover:scale-110"
               >
-                <Image
-                  src={CHAT_ICON}
-                  alt="PropagouDev"
-                  width={32}
-                  height={32}
-                  className="h-8 w-8 rounded-full animate-pulse"
-                />
+                <div className="flex items-center justify-center h-16 w-16 rounded-full ring-2 ring-primary/40 shadow-[0_0_24px_rgba(255,255,255,0.20)] bg-gradient-to-br from-primary/25 via-primary/10 to-transparent">
+                  <Image
+                    src={CHAT_ICON}
+                    alt="PropagouDev"
+                    width={56}
+                    height={56}
+                    className="h-14 w-14 drop-shadow-md"
+                  />
+                </div>
               </Button>
             </DialogTrigger>
           </TooltipTrigger>
