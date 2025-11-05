@@ -1,0 +1,8 @@
+# Ignorar artefatos de desenvolvimento do Genkit no deploy
+.genkit/
+src/ai/dev.ts
+src/app/api/genkit/
+
+# Logs locais e arquivos temporários
+.modified
+*.log
