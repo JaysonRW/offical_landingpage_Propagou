@@ -3,48 +3,49 @@
 Última atualização: 2025-11-05
 
 ## Visão Geral
-- Projeto `Next.js 15` com `App Router`, orientado a componentes, focado em landing page de alta conversão.
-- UI baseada em `Tailwind CSS` e `shadcn/ui` (Radix UI), com ícones `lucide-react`.
-- Integração de chatbot via `Genkit` com `Google Gemini` e telemetria do Firebase.
-- Scripts de desenvolvimento e build prontos para `Turbopack` e produção.
+- Projeto `Next.js 15` com `App Router`, focado em landing page de alta conversão.
+- UI com `Tailwind CSS` e `shadcn/ui` (Radix UI), ícones `lucide-react`.
+- Chatbot: integração via `RouteLLM (Abacus)` usando modelo `Gemini 2.5 Flash`.
+- Fluxos auxiliares (ex.: qualificação de leads) continuam disponíveis via `Genkit`.
+- Hospedagem/infra compatível com `Firebase App Hosting`.
 
 ## Tecnologias Principais
 - Framework: `next@15.3.3`, `react@18.3.1`, `react-dom@18.3.1`.
-- Estilos: `tailwindcss@3.4.1`, `tailwindcss-animate`, `globals.css`, tokens CSS via variáveis.
-- UI/UX: `@radix-ui/*` (dialog, sheet, toast, accordion, etc.), `shadcn/ui` com aliases configurados em `components.json`.
+- Estilos: `tailwindcss@3.4.1`, animações utilitárias e `globals.css`.
+- UI/UX: `@radix-ui/*`, `shadcn/ui` com aliases em `components.json`.
 - Ícones: `lucide-react`.
-- Charts e interações: `recharts`, componentes customizados em `src/components/ui/chart.tsx`.
 - Carrossel: `embla-carousel-react`.
-- Efeitos visuais: `three`, `vanta` (ex.: `VantaBackground`).
-- AI/Chatbot: `@genkit-ai/*`, `@google/generative-ai`, `@ai-sdk/google`.
-- Validação: `zod`, `react-hook-form`.
-- Infra/Hosting: `Firebase App Hosting` (arquivo `apphosting.yaml`).
+- AI/Chatbot:
+  - Chat principal: `RouteLLM (Abacus)` → endpoint próprio (`/api/chat`).
+  - Fluxos auxiliares: `@genkit-ai/*` (e.g., `lead-quality-estimation`).
+- Validação: `zod` (em fluxos e possíveis futuras validações de briefing).
 
 ## Arquitetura e Estrutura
 - Entradas:
-  - `src/app/layout.tsx`: layout raiz, fontes, `ChatWidget` e `Toaster` globais.
-  - `src/app/page.tsx`: composição da landing (`Header`, `Hero`, `SocialProof`, `ProjectGallery`, `Services`, `Pricing`, `Faq`, `CtaSection`, `Footer`).
+  - `src/app/layout.tsx`: layout global, fontes, `ChatWidget` e `Toaster`.
+  - `src/app/page.tsx`: composição de seções (Header, Hero, SocialProof, ProjectGallery, Services, Pricing, Faq, CTA, Footer).
 - Componentes de Landing: `src/components/landing/*`.
-- Componentes UI: `src/components/ui/*` (baseados em Radix/shadcn, estilizados com Tailwind).
-- Hooks: `src/hooks/*` (ex.: `use-toast`, `use-mobile`).
-- Lib: `src/lib/*` (utils, imagens placeholder, definições).
-- AI: `src/ai/genkit.ts` (config do Genkit, flow `chatFlow`), `src/ai/flows/*` (ex.: `lead-quality-estimation`).
-- API: endpoint esperado para o Chat em `/api/genkit/flows/chatFlow` (consumido pelo `ChatWidget`).
+- Componentes UI: `src/components/ui/*` (Radix/shadcn estilizados com Tailwind).
+- Lib: `src/lib/*` (utils, imagens, definições, briefing util).
+- AI:
+  - `src/app/api/chat/route.ts`: core do chat, integra `Abacus` e aplica persona consultiva.
+  - `src/app/api/briefing/route.ts`: envio de briefing por e-mail (Resend).
+  - `src/lib/briefing.ts`: tipo, validação básica e envio de briefing.
+  - `src/ai/genkit.ts` e `src/ai/flows/*`: fluxos auxiliares via Genkit (não usados no chat principal).
 
-## Chatbot (Genkit + Gemini)
-- `src/ai/genkit.ts`:
-  - Configura `googleAI` (`apiVersion: v1beta`), habilita telemetria Firebase.
-  - Define `HistorySchema` e o `defineFlow` `chatFlow` com prompt de sistema orientado à marca.
-- `src/components/landing/ChatWidget.tsx`:
-  - UI do chat, estado, envio de mensagens.
-  - Faz `POST` para `/api/genkit/flows/chatFlow` com `{ input: { history } }` e espera `result.output` string.
-- Observação: verificar/implementar handler de rota em `src/app/api/genkit/flows/chatFlow` se não existir.
+## Chatbot (Abacus + Gemini 2.5 Flash)
+- Endpoint `/api/chat`:
+  - Recebe `{ input: { history } }` com histórico `user/model`.
+  - Mapeia para `system/user/assistant`, aplica prompt consultivo (PropagouDev), foca em sites/LPs/SaaS/EMS e estratégia de vendas.
+  - Retorna `{ output }` string. Se o modelo responder com JSON de briefing válido, envia e-mail automaticamente via Resend e devolve `{ output, meta: { briefingSent: true, emailId } }`.
+- Widget (`src/components/landing/ChatWidget.tsx`):
+  - UI de chat, estado e envio de mensagens.
+  - Botão flutuante atualizado com animação sutil (hover scale) e tooltip “Vamos conversar!”.
+  - Ícone/avatar do assistente usando `https://i.ibb.co/rGQTVMqv/icone-chatbot-landing-Site.png`.
 
 ## Configurações
 - `next.config.ts`:
-  - Ignora erros TS/ESLint no build; configura `images.remotePatterns` (Unsplash, Picsum, etc.).
-- `tailwind.config.ts`:
-  - `darkMode: 'class'`, extensões de tema (cores via CSS vars, animações), `content` apontando para `src/*`.
+  - Ignora erros TS/ESLint no build; `images.remotePatterns` inclui `i.ibb.co`, `Unsplash`, `Picsum`, etc.
 - `components.json`:
   - Aliases: `@/components`, `@/lib`, `@/hooks`, `@/components/ui`.
 - `tsconfig.json`:
@@ -52,32 +53,35 @@
 
 ## Ambientes & Variáveis
 - Ambientes: `dev`, `test`, `prod`.
-- Variáveis esperadas (não criar nem sobrescrever `.env` sem aprovação):
-  - `GOOGLE_API_KEY` (Gemini/Google GenAI),
-  - Possíveis credenciais Firebase para telemetria (se utilizadas).
-- Gitignore já exclui `.env*` e pastas `.genkit/*`.
+- Variáveis esperadas (não modificar `.env` sem aprovação):
+  - `ABACUS_API_KEY` (RouteLLM Abacus – chat principal).
+  - `ABACUS_MODEL` (opcional, padrão `gemini-2.5-flash`).
+  - `ABACUS_BASE_URL` (opcional, padrão `https://routellm.abacus.ai/v1/chat/completions`).
+  - `RESEND_API_KEY` (envio de e-mail de briefing).
+  - `EMAIL_FROM` (opcional, ex.: `briefing@propagou.dev`).
+  - `GOOGLE_API_KEY` (se fluxos Genkit/Gemini auxiliares estiverem ativos).
 
 ## Scripts (package.json)
-- `dev`: `next dev --turbopack -p 9002`.
-- `genkit:dev`: `genkit start -- tsx src/ai/dev.ts` (ambiente local Genkit).
-- `genkit:watch`: `genkit start -- tsx --watch src/ai/dev.ts`.
+- `dev`: `next dev --turbopack -p 9003`.
 - `build`: `NODE_ENV=production next build`.
 - `start`: `next start`.
 - `lint`: `next lint`.
 - `typecheck`: `tsc --noEmit`.
+- (Genkit opcional) `genkit:dev`, `genkit:watch` para flows.
 
 ## Padrões de Conversão (LP)
 - Hero com proposta de valor clara e CTA acima da dobra.
 - Social proof, projetos e serviços com evidências visuais.
 - Pricing com diferenciação de planos e CTA consistente.
 - FAQ reduz objeções; CTA final reforça ação.
-- Chatbot visível e não intrusivo (botão flutuante) para capturar leads.
+- Chatbot visível, com tooltip e ícone da marca, para captar leads.
 
 ## Próximos Passos Recomendados
-- Verificar/implementar rota `/api/genkit/flows/chatFlow` (se ainda não presente).
-- Adicionar monitoramento de eventos (ex.: cliques em CTAs) com analytics consentido.
-- Criar página de contato integrada com `lead-quality-estimation` para qualificação automática.
-- Ajustar metatags/OG com imagens e textos da marca Propagou.
+- Implementar streaming (SSE) em `/api/chat` com fallback non-stream.
+- Validar `Briefing` com `zod` e adicionar logs estruturados/ID de correlação.
+- Rate limiting e métricas por ambiente; observabilidade centralizada.
+- Opcional: migrar fluxos Genkit/Gemini para o mesmo provedor do chat ou desativar telemetria GCP.
+- Adicionar fallback local para o ícone do chat (caso `i.ibb.co` esteja indisponível).
 
 ## Histórico de Atualizações
-- 2025-11-05: Documento inicial criado. Mapeamento de stack, arquitetura e chatbot. Sem alterações de UI.
+- 2025-11-05: Migração do chat para `Abacus (Gemini 2.5 Flash)`, criação do endpoint `/api/chat`, envio automático de briefing via Resend, atualização de ícone/nome/tooltip/animação no `ChatWidget`, documentação step-by-step.
