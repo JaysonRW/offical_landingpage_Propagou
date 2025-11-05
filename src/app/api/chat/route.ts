@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 import { isBriefing, sendBriefingViaResend } from '@/lib/briefing';
 
 type HistoryMessage = { role: 'user' | 'model'; content: string };
@@ -64,6 +66,7 @@ export async function POST(request: Request) {
       baseUrl,
       model,
       messagesCount: messages.length,
+      vercelEnv: process.env.VERCEL_ENV,
     });
 
     const response = await fetch(baseUrl, {
