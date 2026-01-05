@@ -114,17 +114,33 @@ export default function Pricing() {
                   {plan.isPopular ? (
                     <div className="glowing-btn w-full inline-block rounded-md">
                       <div className="btn-inner !rounded-md">
-                        <Button className="w-full font-bold text-lg py-6">
-                          Escolher Plano
+                        <Button asChild className="w-full font-bold text-lg py-6">
+                          <a
+                            href={`https://wa.me/5541995343245?text=${encodeURIComponent(
+                              `Olá! Tenho interesse no plano ${plan.name} da Propagou.`
+                            )}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Escolher Plano
+                          </a>
                         </Button>
                       </div>
                     </div>
                   ) : (
-                    <Button className={cn(
+                    <Button asChild className={cn(
                       "w-full font-bold text-lg py-6 transition-all duration-300",
                       "bg-gray-700 text-white hover:bg-gray-600"
                     )}>
-                      Escolher Plano
+                      <a
+                        href={`https://wa.me/5541995343245?text=${encodeURIComponent(
+                          `Olá! Tenho interesse no plano ${plan.name} da Propagou.`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Escolher Plano
+                      </a>
                     </Button>
                   )}
                 </CardFooter>
