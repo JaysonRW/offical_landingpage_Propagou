@@ -53,7 +53,7 @@ export function ContactForm() {
 
   const form = useForm({
     resolver: zodResolver(contactSchema),
-    defaultValues: { name: '', whatsapp: '', email: '', projectType: '', message: '' },
+    defaultValues: { name: '', whatsapp: '', email: '', projectType: undefined, message: '' },
   });
 
   useEffect(() => {

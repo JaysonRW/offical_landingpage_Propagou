@@ -18,11 +18,11 @@ export async function handleContactForm(
     return {
       message: 'Dados do formulário inválidos. Por favor, verifique os campos.',
       fields: {
-        name: fieldErrors.name?.[0],
-        whatsapp: fieldErrors.whatsapp?.[0],
-        email: fieldErrors.email?.[0],
-        projectType: fieldErrors.projectType?.[0],
-        message: fieldErrors.message?.[0],
+        name: fieldErrors.name?.[0] ?? '',
+        whatsapp: fieldErrors.whatsapp?.[0] ?? '',
+        email: fieldErrors.email?.[0] ?? '',
+        projectType: fieldErrors.projectType?.[0] ?? '',
+        message: fieldErrors.message?.[0] ?? '',
       },
       isSuccess: false,
       isError: true,
