@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
-import { ChatWidget } from '@/components/landing/ChatWidget';
+import { WhatsAppButton } from '@/components/landing/WhatsAppButton';
 
 export const metadata: Metadata = {
   title: 'SaaSForge | Custom SaaS Development',
@@ -44,7 +44,7 @@ export default function RootLayout({
       </head>
       <body className={cn('font-body bg-background text-foreground antialiased')}>
         {children}
-        <ChatWidget />
+        <WhatsAppButton />
         <Toaster />
       </body>
     </html>

@@ -10,41 +10,41 @@ import './PricingBackground.css';
 
 const plans = [
   {
-    name: "Start",
-    price: "R$ 2.900",
-    description: "Ideal para validar ideias e lançar sua presença online.",
+    name: "Starter One-Page",
+    price: "R$ 400",
+    description: "Ideal pra quem quer começar já",
     features: [
-      "Landing Page profissional",
-      "Domínio e hospedagem por 1 ano",
-      "1 ciclo de revisão de design",
-      "Formulário de contato",
+      "Copy + SEO básico",
+      "Landing Page Otimizada",
+      "Formulários integrados → WhatsApp",
+      "Meta: leads já no primeiro mês",
     ],
     isPopular: false,
     isCustom: false,
   },
   {
-    name: "Pro",
-    price: "R$ 7.900",
-    description: "A solução completa para digitalizar e automatizar seu negócio.",
+    name: "Institucional Plus",
+    price: "R$ 1.200",
+    description: "Perfeito pra pequenas empresas que querem presença forte",
     features: [
-      "SaaS ou Portal completo",
-      "Painel de administração",
-      "1 mês de suporte prioritário",
-      "Treinamento da equipe",
-      "Integração com 1 sistema (ex: Pagamentos)",
+      "Tudo do Starter",
+      "+ 5 abas internas",
+      "SEO + meta tags + sitemap",
+      "Integração com WhatsApp e Google Analytics",
+      
     ],
     isPopular: true,
     isCustom: false,
   },
   {
-    name: "Enterprise",
-    price: "Preço sob Consulta",
-    description: "Para projetos de larga escala com necessidades customizadas.",
+    name: "Pro App / Personalizado",
+    price: "R$ 2500+",
+    description: "Para quem quer crescer online e vender digitalmente",
     features: [
-      "Tudo do plano Pro",
+      "Site + automações",
       "Sistema totalmente customizado",
-      "Desenvolvimento de API",
-      "Equipe de projeto dedicada",
+      "Integrações (API / CRM)",
+      "Funcionalidade extra sob demanda",
       "Suporte e manutenção contínuos",
     ],
     isPopular: false,
@@ -64,7 +64,7 @@ export default function Pricing() {
       />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-500">Planos flexíveis para cada necessidade</h2>
+          <h2 className="text-4xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-500">Comece com apenas R$400 + resultados rápidos</h2>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
             Invista em uma solução que cresce com o seu negócio. Sem surpresas, sem letras miúdas.
           </p>
@@ -95,7 +95,7 @@ export default function Pricing() {
                   <CardTitle className="text-2xl font-headline text-white">{plan.name}</CardTitle>
                   <div className="pt-4">
                     <span className="text-4xl font-bold text-blue-400">{plan.price}</span>
-                    <span className="text-sm text-gray-400">{plan.name === "Start" || plan.name === "Pro" ? " / projeto" : ""}</span>
+                    <span className="text-sm text-gray-400">{plan.name === "Starter One-Page" || plan.name === "Pro" ? " / projeto" : ""}</span>
                   </div>
                   <p className="text-xs text-gray-500 mt-1">7 dias de garantia</p>
                   <CardDescription className="pt-2 !text-gray-400">{plan.description}</CardDescription>
