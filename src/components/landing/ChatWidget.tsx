@@ -23,7 +23,7 @@ interface Message {
 }
 
 export function ChatWidget() {
-  const CHAT_ICON = 'https://i.ibb.co/rGQTVMqv/icone-chatbot-landing-Site.png';
+  const CHAT_ICON = 'https://placehold.co/100x100/1e293b/ffffff?text=Bot';
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');

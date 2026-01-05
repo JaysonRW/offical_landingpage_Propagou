@@ -31,9 +31,8 @@ export default function Services() {
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://i.ibb.co/c0VjHF4/background-foguete-semfundo.png')",
-          }}
+          // Imagem de fundo removida temporariamente pois o link estava quebrado. O gradiente abaixo fornece o visual necessário.
+          // style={{ backgroundImage: "url('...')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0f1729]/90 to-[#0f1729]" />
       </div>
