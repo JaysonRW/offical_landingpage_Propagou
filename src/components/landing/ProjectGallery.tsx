@@ -3,7 +3,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -206,7 +205,15 @@ export default function ProjectGallery() {
                   </a>
                 </Button>
                 <Button asChild className="flex-1">
-                  <Link href="#contact">Quero algo assim</Link>
+                  <a
+                    href={`https://wa.me/5541995343245?text=${encodeURIComponent(
+                      `Olá! Vi o projeto "${selectedProject.title}" no portfólio da Propagou e tenho interesse em desenvolver um projeto similar.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Quero algo assim
+                  </a>
                 </Button>
               </div>
             </DialogContent>
