@@ -15,7 +15,6 @@ import {
   MessageSquare,
 } from 'lucide-react';
 import { Button } from '../ui/button';
-import Link from 'next/link';
 
 export default function Faq() {
   const faqItems = [
@@ -112,10 +111,16 @@ export default function Faq() {
           <div className="glowing-btn inline-block">
             <div className="btn-inner">
               <Button asChild size="lg">
-                <Link href="#contact">
+                <a
+                  href={`https://wa.me/5541995343245?text=${encodeURIComponent(
+                    'Olá! Gostaria de tirar algumas dúvidas sobre os serviços da Propagou.'
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <MessageSquare className="mr-2 h-5 w-5" />
                   Tirar mais Dúvidas
-                </Link>
+                </a>
               </Button>
             </div>
           </div>
