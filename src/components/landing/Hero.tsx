@@ -54,7 +54,7 @@ export default function Hero() {
               <div className="glowing-btn inline-block rounded-md">
                 <div className="btn-inner !rounded-md">
                   <Button asChild size="lg">
-                    <Link href="#contact">
+                    <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                       Fale com Especialista
                     </Link>
                   </Button>

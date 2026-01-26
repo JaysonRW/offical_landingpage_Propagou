@@ -2,6 +2,24 @@
 
 Este arquivo documenta o progresso passo a passo do desenvolvimento, incluindo alterações realizadas, arquivos criados e suas funcionalidades.
 
+## 2026-01-26 - Atualização de Contato e Imagens
+
+### Atualização dos Botões de Contato (WhatsApp)
+- **Funcionalidade**: Padronização de todos os botões de contato ("Fale com Especialista") para redirecionar diretamente para o WhatsApp com mensagem personalizada.
+- **Detalhes**:
+  - Número configurado: `5541995343245`
+  - Mensagem: "vim atrávez de seu site, quero saber mais sobre os serviços"
+- **Arquivos Alterados**:
+  - `src/components/landing/Header.tsx`: Botão do menu principal.
+  - `src/components/landing/WhatsAppButton.tsx`: Botão flutuante.
+  - `src/components/landing/Hero.tsx`: Botão principal da seção hero.
+
+### Migração de Imagens para Local
+- **Funcionalidade**: Substituição de imagens externas (placehold.co) por arquivos locais para garantir carregamento correto na Vercel e melhor performance.
+- **Arquivos Alterados**:
+  - `src/lib/placeholder-images.json`: Atualizado para apontar para `/images/projects/`.
+- **Ação Necessária**: Usuário deve adicionar as imagens (moduart.png, etc.) na pasta `public/images/projects`.
+
 ## 2026-01-06 - Configuração de Imagens e Páginas Legais
 
 ### Correção de Erro de Imagens na Vercel (Erro 400)

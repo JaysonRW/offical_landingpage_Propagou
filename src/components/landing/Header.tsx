@@ -15,6 +15,8 @@ const navLinks = [
   { name: 'Contato', href: '#contact' },
 ];
 
+const WHATSAPP_URL = "https://wa.me/5541995343245?text=vim%20atr%C3%A1vez%20de%20seu%20site%2C%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os";
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,7 +60,7 @@ export default function Header() {
            <div className="glowing-btn inline-block rounded-md">
              <div className="btn-inner !rounded-md">
               <Button asChild>
-                <Link href="#contact">
+                <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   <MessageSquare className="mr-2 h-4 w-4" />
                   Fale com um especialista
                 </Link>
@@ -98,7 +100,9 @@ export default function Header() {
                 <div className="border-t border-border p-4">
                   <Button asChild className="w-full">
                     <Link
-                      href="#contact"
+                      href={WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <MessageSquare className="mr-2 h-4 w-4" />

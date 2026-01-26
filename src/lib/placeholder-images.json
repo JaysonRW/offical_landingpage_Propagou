@@ -9,13 +9,13 @@
     {
       "id": "founder",
       "description": "Jayson Walter, Fundador",
-      "imageUrl": "https://placehold.co/400x400/1e293b/ffffff?text=Jayson+Walter",
+      "imageUrl": "/images/projects/FOUNDER%20-%20JAYSON.png",
       "imageHint": "founder portrait"
     },
     {
       "id": "client-1",
       "description": "C&D Pisos",
-      "imageUrl": "https://placehold.co/200x80/ffffff/000000?text=C%26D+Pisos",
+      "imageUrl": "/images/projects/Cdpisos.png",
       "imageHint": "logo abstract"
     },
     {
@@ -27,31 +27,31 @@
     {
       "id": "client-3",
       "description": "Moduart Isopor",
-      "imageUrl": "https://placehold.co/200x80/ffffff/000000?text=Moduart",
+      "imageUrl": "/images/projects/moduart.png",
       "imageHint": "logo abstract"
     },
     {
       "id": "client-4",
       "description": "Poker Hands Pro",
-      "imageUrl": "https://placehold.co/200x80/ffffff/000000?text=Poker+Hands",
+      "imageUrl": "/images/projects/Pokerhandspro.png",
       "imageHint": "logo abstract"
     },
     {
       "id": "client-5",
       "description": "Vetkin Petcenter",
-      "imageUrl": "https://placehold.co/200x80/ffffff/000000?text=Vetkin",
+      "imageUrl": "/images/projects/vetkin-petcenter.png",
       "imageHint": "logo abstract"
     },
     {
       "id": "client-6",
       "description": "Condomínio Collina Belvedere",
-      "imageUrl": "https://placehold.co/200x80/ffffff/000000?text=Condominio",
+      "imageUrl": "/images/projects/collinaBelvedere.png",
       "imageHint": "logo abstract"
     },
     {
       "id": "client-7",
       "description": "Jadi Cristina",
-      "imageUrl": "https://placehold.co/200x80/ffffff/000000?text=Jadi+Cristina",
+      "imageUrl": "/images/projects/jadinacristina.png",
       "imageHint": "logo abstract"
     },
     {
