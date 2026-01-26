@@ -3,12 +3,9 @@
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import Image from 'next/image';
+import { WHATSAPP_URL } from '@/lib/constants';
 
 export function WhatsAppButton() {
-  const phoneNumber = '5541995343245';
-  const message = encodeURIComponent('vim atrávez de seu site, quero saber mais sobre os serviços');
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-
   return (
     <TooltipProvider>
       <Tooltip>
@@ -19,7 +16,7 @@ export function WhatsAppButton() {
             className="fixed bottom-6 right-6 z-50 p-0 bg-transparent hover:bg-transparent shadow-none border-0 transition-transform duration-200 hover:scale-110"
           >
             <a 
-              href={whatsappUrl} 
+              href={WHATSAPP_URL} 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Fale conosco no WhatsApp"

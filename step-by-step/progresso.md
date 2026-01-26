@@ -8,8 +8,9 @@ Este arquivo documenta o progresso passo a passo do desenvolvimento, incluindo a
 - **Funcionalidade**: Padronização de todos os botões de contato ("Fale com Especialista") para redirecionar diretamente para o WhatsApp com mensagem personalizada.
 - **Detalhes**:
   - Número configurado: `5541995343245`
-  - Mensagem: "vim atrávez de seu site, quero saber mais sobre os serviços"
+  - Mensagem: "vim através de seu site, quero saber mais sobre os serviços"
 - **Arquivos Alterados**:
+  - `src/lib/constants.ts`: Arquivo criado para centralizar constantes (URL do WhatsApp).
   - `src/components/landing/Header.tsx`: Botão do menu principal.
   - `src/components/landing/WhatsAppButton.tsx`: Botão flutuante.
   - `src/components/landing/Hero.tsx`: Botão principal da seção hero.

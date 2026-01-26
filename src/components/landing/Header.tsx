@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Rocket, MessageSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { WHATSAPP_URL } from '@/lib/constants';
 
 const navLinks = [
   { name: 'Início', href: '#hero' },
@@ -14,8 +15,6 @@ const navLinks = [
   { name: 'FAQ', href: '#faq' },
   { name: 'Contato', href: '#contact' },
 ];
-
-const WHATSAPP_URL = "https://wa.me/5541995343245?text=vim%20atr%C3%A1vez%20de%20seu%20site%2C%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);

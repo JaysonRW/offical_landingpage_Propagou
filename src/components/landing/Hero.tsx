@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { placeholderImages } from '@/lib/placeholder-images';
 import VantaBackground from './VantaBackground';
+import { WHATSAPP_URL } from '@/lib/constants';
 
 const benefits = [
   {
