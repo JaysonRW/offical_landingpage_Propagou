@@ -9,13 +9,13 @@
     {
       "id": "founder",
       "description": "Jayson Walter, Fundador",
-      "imageUrl": "/images/projects/FOUNDER%20-%20JAYSON.png",
+      "imageUrl": "/images/jayson.png",
       "imageHint": "founder portrait"
     },
     {
       "id": "client-1",
       "description": "C&D Pisos",
-      "imageUrl": "/images/projects/Cdpisos.png",
+      "imageUrl": "/images/Cdpisos_logo.png",
       "imageHint": "logo abstract"
     },
     {
@@ -27,31 +27,37 @@
     {
       "id": "client-3",
       "description": "Moduart Isopor",
-      "imageUrl": "/images/projects/moduart.png",
+      "imageUrl": "/images/moduartisopor_logo.png",
       "imageHint": "logo abstract"
     },
     {
       "id": "client-4",
       "description": "Poker Hands Pro",
-      "imageUrl": "/images/projects/Pokerhandspro.png",
+      "imageUrl": "/images/Pokerhandspro_logo.png",
       "imageHint": "logo abstract"
     },
     {
       "id": "client-5",
       "description": "Vetkin Petcenter",
-      "imageUrl": "/images/projects/vetkin-petcenter.png",
+      "imageUrl": "/images/vetkin-petcenter_logo.png",
       "imageHint": "logo abstract"
     },
     {
       "id": "client-6",
       "description": "Condomínio Collina Belvedere",
-      "imageUrl": "/images/projects/collinaBelvedere.png",
+      "imageUrl": "/images/CollinaBelvedere_logo.png",
       "imageHint": "logo abstract"
     },
     {
       "id": "client-7",
       "description": "Jadi Cristina",
-      "imageUrl": "/images/projects/jadinacristina.png",
+      "imageUrl": "/images/jadicristina_logo.png",
+      "imageHint": "logo abstract"
+    },
+    {
+      "id": "client-8",
+      "description": "Nobres Bairros",
+      "imageUrl": "/images/nobres-bairros_logo.jpg",
       "imageHint": "logo abstract"
     },
     {

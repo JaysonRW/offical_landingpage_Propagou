@@ -3,9 +3,12 @@
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import Image from 'next/image';
-import { WHATSAPP_URL } from '@/lib/constants';
 
 export function WhatsAppButton() {
+  const phoneNumber = '5541995343245';
+  const message = encodeURIComponent('vim atrávez de seu site, quero saber mais sobre os serviços');
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+
   return (
     <TooltipProvider>
       <Tooltip>

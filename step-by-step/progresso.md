@@ -21,6 +21,12 @@ Este arquivo documenta o progresso passo a passo do desenvolvimento, incluindo a
   - `src/lib/placeholder-images.json`: Atualizado para apontar para `/images/projects/`.
 - **Ação Necessária**: Usuário deve adicionar as imagens (moduart.png, etc.) na pasta `public/images/projects`.
 
+### Atualização de Logos de Clientes
+- **Funcionalidade**: Atualização dos caminhos das logos dos clientes para refletir os arquivos adicionados na pasta `public/images/`.
+- **Arquivos Alterados**:
+  - `src/lib/placeholder-images.json`: Atualizado com os novos nomes de arquivos (Cdpisos_logo.png, etc.) e adicionado o cliente "Nobres Bairros".
+
+
 ## 2026-01-06 - Configuração de Imagens e Páginas Legais
 
 ### Correção de Erro de Imagens na Vercel (Erro 400)
