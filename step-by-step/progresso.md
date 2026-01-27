@@ -25,6 +25,12 @@ Este arquivo documenta o progresso passo a passo do desenvolvimento, incluindo a
 - **Funcionalidade**: Atualização dos caminhos das logos dos clientes para refletir os arquivos adicionados na pasta `public/images/`.
 - **Arquivos Alterados**:
   - `src/lib/placeholder-images.json`: Atualizado com os novos nomes de arquivos (Cdpisos_logo.png, etc.) e adicionado o cliente "Nobres Bairros".
+  - **Repositório Git**: Adicionado `public/images/propagou_logo.png` e confirmada a presença das demais logos no versionamento.
+
+### Correção Logo Propagou Negócios
+- **Funcionalidade**: Alteração da logo da Propagou Negócios na seção de prova social para usar a imagem local correta.
+- **Arquivos Alterados**:
+  - `src/lib/placeholder-images.json`: Atualizado `client-2` para usar `/images/propagou_logo.png`.
 
 
 ## 2026-01-06 - Configuração de Imagens e Páginas Legais
