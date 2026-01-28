@@ -63,37 +63,86 @@
     {
       "id": "project-1",
       "description": "Landing Page Jadi Manicure",
-      "imageUrl": "https://placehold.co/800x600/1e293b/ffffff?text=Landing+Page+Jadi",
+      "imageUrl": "/images/projects/Landing page Jadi Cristina_top.png",
+      "gallery": [
+        "/images/projects/Landing page Jadi Cristina_top.png",
+        "/images/projects/Landing page Jadi Cristina_agendamento.png",
+        "/images/projects/Landing page Jadi Cristina_cta.png",
+        "/images/projects/Landing page Jadi Cristina_galeria.png",
+        "/images/projects/Landing page Jadi Cristina_cta2.png"
+      ],
       "imageHint": "website screenshot"
     },
     {
       "id": "project-2",
       "description": "Portal de Agendamentos para Barbearias",
-      "imageUrl": "https://placehold.co/800x600/1e293b/ffffff?text=Portal+Barbearia",
+      "imageUrl": "/images/projects/portal barbearia_top.png",
+      "gallery": [
+        "/images/projects/portal barbearia_top.png",
+        "/images/projects/portal barbearia_painel_fidelidade.png",
+        "/images/projects/portal barbearia_clientes.png",
+        "/images/projects/portal barbearia_sistema_temas.png",
+        "/images/projects/portal barbearia_adm.png",
+        "/images/projects/portal barbearia_agendamento.png",
+        "/images/projects/portal barbearia_galeria.png"
+      ],
       "imageHint": "barbershop dashboard"
     },
     {
       "id": "project-3",
       "description": "Portal Condomínio Collina Belvedere",
-      "imageUrl": "https://placehold.co/800x600/1e293b/ffffff?text=Portal+Condominio",
+      "imageUrl": "/images/projects/portal condominio_top.png",
+      "gallery": [
+        "/images/projects/portal condominio_top.png",
+        "/images/projects/portal condominio_arealogin.png",
+        "/images/projects/portal condominio_contato.png",
+        "/images/projects/portal condominio_eventos.png",
+        "/images/projects/portal condominio_topicos.png"
+      ],
       "imageHint": "dashboard ui"
     },
     {
       "id": "project-4",
       "description": "Portal Poker Hands Pro",
-      "imageUrl": "https://placehold.co/800x600/1e293b/ffffff?text=Poker+Hands+Pro",
+      "imageUrl": "/images/projects/pokerhandspro_calculadora_top.png",
+      "gallery": [
+        "/images/projects/pokerhandspro_calculadora_top.png",
+        "/images/projects/pokerhandspro_calculadora_calc_1.png",
+        "/images/projects/pokerhandspro_calculadora_glossario.png",
+        "/images/projects/pokerhandspro_calculadora_glossaro1.png",
+        "/images/projects/pokerhandspro_calculadora_modal1.png",
+        "/images/projects/pokerhandspro_calculadora_simulador.png",
+        "/images/projects/pokerhandspro_calculadora (1).png"
+      ],
       "imageHint": "poker dashboard"
     },
     {
       "id": "project-5",
       "description": "Site C&D Pisos",
-      "imageUrl": "https://placehold.co/800x600/1e293b/ffffff?text=Site+CD+Pisos",
+      "imageUrl": "/images/projects/cspisos_site_institucional (1).png",
+      "gallery": [
+        "/images/projects/cspisos_site_institucional (1).png",
+        "/images/projects/cspisos_site_institucional (2).png",
+        "/images/projects/cspisos_site_institucional (3).png",
+        "/images/projects/cspisos_site_institucional (4).png",
+        "/images/projects/cspisos_site_institucional (5).png",
+        "/images/projects/cspisos_site_institucional (6).png",
+        "/images/projects/cspisos_site_institucional (7).png"
+      ],
       "imageHint": "website screenshot"
     },
     {
       "id": "project-6",
       "description": "GestãoPro - ERP Financeiro",
-      "imageUrl": "https://placehold.co/800x600/1e293b/ffffff?text=ERP+Financeiro",
+      "imageUrl": "/images/projects/GestãoPro - ERP Financeiro (1).png",
+      "gallery": [
+        "/images/projects/GestãoPro - ERP Financeiro (1).png",
+        "/images/projects/GestãoPro - ERP Financeiro (2).png",
+        "/images/projects/GestãoPro - ERP Financeiro (3).png",
+        "/images/projects/GestãoPro - ERP Financeiro (4).png",
+        "/images/projects/GestãoPro - ERP Financeiro (5).png",
+        "/images/projects/GestãoPro - ERP Financeiro (6).png"
+      ],
       "imageHint": "erp dashboard"
     }
   ]

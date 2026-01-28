@@ -32,6 +32,16 @@ Este arquivo documenta o progresso passo a passo do desenvolvimento, incluindo a
 - **Arquivos Alterados**:
   - `src/lib/placeholder-images.json`: Atualizado `client-2` para usar `/images/propagou_logo.png`.
 
+### Atualização da Galeria de Projetos
+- **Funcionalidade**: Implementação de carrossel de imagens para visualização detalhada dos projetos.
+- **Detalhes**:
+  - Adicionado suporte a múltiplas imagens por projeto via propriedade `gallery`.
+  - Integrado componente `Carousel` no diálogo de detalhes do projeto.
+  - Atualizadas as imagens de todos os projetos com os arquivos fornecidos na pasta `public/images/projects`.
+- **Arquivos Alterados**:
+  - `src/lib/placeholder-images.json`: Adicionados arrays de galeria para todos os projetos.
+  - `src/components/landing/ProjectGallery.tsx`: Lógica de renderização do carrossel.
+
 
 ## 2026-01-06 - Configuração de Imagens e Páginas Legais
 

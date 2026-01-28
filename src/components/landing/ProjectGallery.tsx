@@ -14,6 +14,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 import { ArrowRight } from 'lucide-react';
 import { placeholderImages } from '@/lib/placeholder-images';
 import ParallaxStars from './ParallaxStars';
@@ -28,6 +35,7 @@ type Project = {
   imageHint: string;
   tech: string[];
   demoUrl: string;
+  gallery?: string[];
 };
 
 const projectsData: Project[] = placeholderImages
@@ -83,6 +91,7 @@ const projectsData: Project[] = placeholderImages
       imageHint: img.imageHint,
       tech: tech,
       demoUrl: demoUrl,
+      gallery: (img as any).gallery,
     }
   });
 
@@ -169,18 +178,43 @@ export default function ProjectGallery() {
           </div>
 
           {selectedProject && (
-            <DialogContent className="sm:max-w-2xl bg-card">
+            <DialogContent className="sm:max-w-3xl bg-card max-h-[90vh] overflow-y-auto">
               <DialogHeader>
-                <div className="relative h-64 w-full mb-4 rounded-lg overflow-hidden">
-                  <Image
-                    src={selectedProject.imageUrl}
-                    alt={selectedProject.title}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    data-ai-hint={selectedProject.imageHint}
-                  />
+                <div className="relative w-full mb-6 rounded-lg overflow-hidden bg-black/5 flex items-center justify-center min-h-[300px]">
+                  {selectedProject.gallery && selectedProject.gallery.length > 0 ? (
+                    <Carousel className="w-full">
+                      <CarouselContent>
+                        {selectedProject.gallery.map((img, index) => (
+                          <CarouselItem key={index}>
+                            <div className="relative h-[300px] md:h-[400px] w-full flex items-center justify-center bg-muted/20">
+                              <Image
+                                src={img}
+                                alt={`${selectedProject.title} - imagem ${index + 1}`}
+                                fill
+                                style={{ objectFit: 'contain' }}
+                                className="rounded-lg"
+                                sizes="(max-width: 768px) 100vw, 800px"
+                              />
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious className="left-4 bg-background/80 hover:bg-background" />
+                      <CarouselNext className="right-4 bg-background/80 hover:bg-background" />
+                    </Carousel>
+                  ) : (
+                    <div className="relative h-64 w-full">
+                      <Image
+                        src={selectedProject.imageUrl}
+                        alt={selectedProject.title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        data-ai-hint={selectedProject.imageHint}
+                      />
+                    </div>
+                  )}
                 </div>
-                <DialogTitle className="text-2xl">
+                <DialogTitle className="text-2xl font-bold">
                   {selectedProject.title}
                 </DialogTitle>
                 <div className="flex flex-wrap gap-2 pt-2">
