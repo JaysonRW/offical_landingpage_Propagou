@@ -75,10 +75,10 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   name: 'PropagouDev',
-  image: 'https://propagou.dev/images/propagou_logo.png',
+  image: 'https://www.propagounaweb.com.br/images/propagou_logo.png',
   description:
     'Agência de desenvolvimento de software especializada em landing pages, sistemas web e soluções digitais personalizadas.',
-  url: 'https://propagou.dev',
+  url: 'https://www.propagounaweb.com.br',
   telephone: '+5541995343245',
   address: {
     '@type': 'PostalAddress',
