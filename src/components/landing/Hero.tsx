@@ -78,7 +78,7 @@ export default function Hero() {
                   />
                 )}
                 <div className="text-left">
-                  <p className="font-semibold text-base text-white">Com nosso fundador, Jayson Walter.</p>
+                  <p className="font-semibold text-base text-white">Falar com consultor, Jayson Walter.</p>
                   <p className="text-sm text-gray-400">Sem compromisso.</p>
                 </div>
               </div>
