@@ -1,11 +1,10 @@
 
 'use client';
 
-import { useActionState, useEffect } from 'react';
-import { useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -18,88 +17,62 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { handleContactForm } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, MessageSquare } from 'lucide-react';
-import { contactSchema, type FormState } from '@/lib/definitions';
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <div className="glowing-btn inline-block w-full rounded-md">
-      <div className="btn-inner !rounded-md">
-        <Button type="submit" disabled={pending} className="w-full">
-          {pending ? (
-            <Loader2 className="animate-spin" />
-          ) : (
-            <>
-              <MessageSquare className="mr-2 h-4 w-4" />
-              Enviar e Abrir no WhatsApp
-            </>
-          )}
-        </Button>
-      </div>
-    </div>
-  );
-}
+import { contactSchema } from '@/lib/definitions';
 
 export function ContactForm() {
   const { toast } = useToast();
-  const [state, formAction] = useActionState<FormState, FormData>(handleContactForm, {
-    message: '',
-    isSuccess: false,
-    isError: false,
-  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm({
     resolver: zodResolver(contactSchema),
     defaultValues: { name: '', whatsapp: '', email: '', projectType: undefined, message: '' },
   });
 
-  useEffect(() => {
-    if (state.isSuccess) {
+  const onSubmit = async (data: z.infer<typeof contactSchema>) => {
+    setIsSubmitting(true);
+    
+    try {
+      const { name, email, projectType, message, whatsapp } = data;
+
+      // Mensagem mais profissional para WhatsApp
+      const whatsappMessage =
+        `Olá! Tenho interesse nos serviços da PropagouDev.\n\n` +
+        `Dados do contato:\n` +
+        `• Nome: ${name}\n` +
+        `• E-mail: ${email || 'Não informado'}\n` +
+        `• WhatsApp: ${whatsapp || 'Não informado'}\n` +
+        `• Tipo de projeto: ${projectType}\n\n` +
+        `Mensagem:\n${message || 'Não informado'}\n\n` +
+        `Podemos seguir pelo WhatsApp?`;
+
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      const whatsappUrl = `https://wa.me/5541995343245?text=${encodedMessage}`;
+
       toast({
         title: 'Sucesso!',
-        description: state.message,
+        description: 'Redirecionando para o WhatsApp...',
         duration: 8000,
       });
-      form.reset();
-      if (state.whatsappUrl) {
-        // Redireciona na mesma aba para evitar bloqueio de pop-up
-        window.location.href = state.whatsappUrl;
-      }
-    } else if (state.isError) {
-      toast({
-        variant: 'destructive',
-        title: 'Erro no envio',
-        description: state.message,
-      });
-    }
-  }, [state, toast, form]);
-  
-  const action: (payload: FormData) => void = (payload) => {
-    form.clearErrors();
-    const result = contactSchema.safeParse(Object.fromEntries(payload));
-    if (!result.success) {
-      const fieldErrors = result.error.flatten().fieldErrors;
-      Object.keys(fieldErrors).forEach((fieldName) => {
-        const key = fieldName as keyof typeof fieldErrors;
-        form.setError(key, { type: 'manual', message: fieldErrors[key]?.[0] });
-      });
-      toast({
-        variant: 'destructive',
-        title: 'Erro de Validação',
-        description: 'Por favor, verifique os campos destacados.',
-      });
-      return; 
-    }
-    formAction(payload);
-  };
 
+      form.reset();
+      window.location.href = whatsappUrl;
+    } catch (error) {
+      console.error('Error handling contact form:', error);
+      toast({
+        variant: 'destructive',
+        title: 'Erro',
+        description: 'Ocorreu um erro ao processar o formulário.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <Form {...form}>
-      <form action={action} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <FormField
           control={form.control}
           name="name"
@@ -187,7 +160,21 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <SubmitButton />
+        
+        <div className="glowing-btn inline-block w-full rounded-md">
+          <div className="btn-inner !rounded-md">
+            <Button type="submit" disabled={isSubmitting} className="w-full">
+              {isSubmitting ? (
+                <Loader2 className="animate-spin" />
+              ) : (
+                <>
+                  <MessageSquare className="mr-2 h-4 w-4" />
+                  Enviar e Abrir no WhatsApp
+                </>
+              )}
+            </Button>
+          </div>
+        </div>
       </form>
     </Form>
   );
